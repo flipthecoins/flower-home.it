@@ -1,0 +1,14 @@
+{
+  "htmlPath": "proyectos/flower-home.it/bot/index.html",
+  "intervalMinutes": 10080,
+  "stateCycle": [
+    "00",
+    "01",
+    "11",
+    "10"
+  ],
+  "targets": [
+    "Licenze straniere: MGA, Curaçao e Anjouan a confronto",
+    "Crypto e Bitcoin nei casino senza licenza italiana"
+  ]
+}
