@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+    <stop offset="0%" stop-color="#14264a"/><stop offset="100%" stop-color="#050c1a"/>
+  </radialGradient>
+  <radialGradient id="spot" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e8c547" stop-opacity="0.17"/><stop offset="100%" stop-color="#e8c547" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="gv" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#f7e07a"/><stop offset="100%" stop-color="#c49a1a"/>
+  </linearGradient>
+  <linearGradient id="nv" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2f65cf"/><stop offset="100%" stop-color="#0f2060"/>
+  </linearGradient>
+  <linearGradient id="nlid" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3a72e0"/><stop offset="100%" stop-color="#1a3c9a"/>
+  </linearGradient>
+  <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#1e3a94"/><stop offset="100%" stop-color="#0a1640"/>
+  </linearGradient>
+  <filter id="ds" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#000" flood-opacity="0.55"/>
+  </filter>
+  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<rect width="1200" height="700" fill="url(#bg)"/>
+<ellipse cx="600" cy="310" rx="300" ry="230" fill="url(#spot)"/>
+<g filter="url(#ds)">
+
+<g transform="translate(600,350)">
+  <!-- Ground shadow -->
+  <ellipse cx="0" cy="152" rx="162" ry="18" fill="#000" opacity="0.3"/>
+  <!-- Lock body -->
+  <rect x="-155" y="-72" width="310" height="222" rx="28" fill="url(#nv)"/>
+  <!-- Lock body top shine -->
+  <rect x="-155" y="-72" width="310" height="62" rx="28" fill="rgba(255,255,255,0.08)"/>
+  <!-- Gold border -->
+  <rect x="-155" y="-72" width="310" height="222" rx="28" fill="none" stroke="url(#gv)" stroke-width="5"/>
+  <!-- Keyhole circle -->
+  <circle cx="0" cy="54" r="34" fill="#050c1a"/>
+  <!-- Keyhole drip (diamond-ish below) -->
+  <path d="M -12,54 L 0,96 L 12,54 Z" fill="#050c1a"/>
+  <!-- Left shackle post: goes UP from lock body (left hole at x=-72, top of body y=-72) -->
+  <rect x="-90" y="-258" width="36" height="224" rx="18" fill="url(#gv)"/>
+  <!-- Shackle arc (left post to arc peak to right) -->
+  <path d="M -72,-258 Q -72,-330 0,-330 Q 72,-330 72,-258"
+    fill="none" stroke="url(#gv)" stroke-width="36" stroke-linecap="round"/>
+  <!-- Right shackle post: OPEN – swung outward to the right, doesn't go into lock -->
+  <!-- Post starts at arc end (72,-258) and angles away at +40deg, shortish -->
+  <rect x="54" y="-258" width="36" height="110" rx="18" fill="url(#gv)"
+    transform="rotate(38 72 -258)"/>
+  <!-- Right hole in lock body is empty (subtle dark circle showing it's open) -->
+  <ellipse cx="72" cy="-72" rx="20" ry="8" fill="#050c1a" opacity="0.6"/>
+  <!-- Open gap glow (between right post end and right hole) -->
+  <circle cx="130" cy="-186" r="18" fill="url(#gv)" opacity="0.25" filter="url(#glow)"/>
+</g>
+</g>
+<text x="600" y="612" text-anchor="middle" font-family="'Arial Black',Arial,sans-serif" font-weight="900" font-size="50" fill="#ffffff" letter-spacing="-1">SENZA AUTOESCLUSIONE</text>
+<text x="600" y="650" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="rgba(255,255,255,0.34)" letter-spacing="6">GIOCA LIBERO · SENZA LIMITI ADM</text>
+<text x="600" y="686" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.14)" letter-spacing="3">flower-home.it</text>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+    <stop offset="0%" stop-color="#14264a"/><stop offset="100%" stop-color="#050c1a"/>
+  </radialGradient>
+  <radialGradient id="spot" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e8c547" stop-opacity="0.17"/><stop offset="100%" stop-color="#e8c547" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="gv" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#f7e07a"/><stop offset="100%" stop-color="#c49a1a"/>
+  </linearGradient>
+  <linearGradient id="nv" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2f65cf"/><stop offset="100%" stop-color="#0f2060"/>
+  </linearGradient>
+  <linearGradient id="nlid" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3a72e0"/><stop offset="100%" stop-color="#1a3c9a"/>
+  </linearGradient>
+  <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#1e3a94"/><stop offset="100%" stop-color="#0a1640"/>
+  </linearGradient>
+  <filter id="ds" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#000" flood-opacity="0.55"/>
+  </filter>
+  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<rect width="1200" height="700" fill="url(#bg)"/>
+<ellipse cx="600" cy="328" rx="300" ry="230" fill="url(#spot)"/>
+<g filter="url(#ds)">
+
+<g transform="translate(600,328)">
+  <!-- Doc shadow -->
+  <rect x="-142" y="-196" width="288" height="376" rx="14" fill="#000" opacity="0.35"/>
+  <!-- Document body (white paper) -->
+  <rect x="-148" y="-202" width="288" height="376" rx="14" fill="#f0f4ff"/>
+  <!-- Folded corner top-right -->
+  <path d="M 92,-202 L 140,-154 L 140,-202 Z" fill="#c8d4f0"/>
+  <path d="M 92,-202 L 92,-154 L 140,-154" fill="none" stroke="#b0bed8" stroke-width="1.5"/>
+  <!-- Header bar (colored) -->
+  <rect x="-148" y="-202" width="288" height="48" rx="14" fill="url(#nv)"/>
+  <rect x="-148" y="-166" width="288" height="12" fill="url(#nv)"/>
+  <!-- Header title line -->
+  <rect x="-118" y="-186" width="150" height="11" rx="5" fill="rgba(255,255,255,0.55)"/>
+  <rect x="-118" y="-170" width="90" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+  <!-- Text lines on paper -->
+  <rect x="-118" y="-126" width="220" height="11" rx="5" fill="#bcc8e0"/>
+  <rect x="-118" y="-102" width="180" height="11" rx="5" fill="#bcc8e0"/>
+  <rect x="-118" y="-78" width="200" height="11" rx="5" fill="#bcc8e0"/>
+  <!-- Form fields -->
+  <rect x="-118" y="-44" width="230" height="34" rx="7" fill="#e4eaf6" stroke="#bcc8e0" stroke-width="1.5"/>
+  <rect x="-118" y="4" width="230" height="34" rx="7" fill="#e4eaf6" stroke="#bcc8e0" stroke-width="1.5"/>
+  <rect x="-118" y="52" width="230" height="34" rx="7" fill="#e4eaf6" stroke="#bcc8e0" stroke-width="1.5"/>
+  <!-- Field dots (placeholder text) -->
+  <rect x="-104" y="-33" width="80" height="10" rx="4" fill="#9aa8c0"/>
+  <rect x="-104" y="14"  width="100" height="10" rx="4" fill="#9aa8c0"/>
+  <rect x="-104" y="62"  width="60"  height="10" rx="4" fill="#9aa8c0"/>
+  <!-- CTA button at bottom -->
+  <rect x="-118" y="108" width="230" height="46" rx="12" fill="url(#nv)"/>
+  <rect x="-118" y="108" width="230" height="22" rx="12" fill="rgba(255,255,255,0.08)"/>
+  <!-- Big gold checkmark overlay (out of doc, overlapping) -->
+  <polyline points="74,-48 134,18 252,-150"
+    fill="none" stroke="url(#gv)" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <!-- Glow circle behind check -->
+  <circle cx="168" cy="-60" r="110" fill="url(#gv)" opacity="0.08"/>
+</g>
+</g>
+<text x="600" y="612" text-anchor="middle" font-family="'Arial Black',Arial,sans-serif" font-weight="900" font-size="50" fill="#ffffff" letter-spacing="-1">REGISTRARSI</text>
+<text x="600" y="650" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="rgba(255,255,255,0.34)" letter-spacing="6">GUIDA PASSO PER PASSO</text>
+<text x="600" y="686" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.14)" letter-spacing="3">flower-home.it</text>
+</svg>

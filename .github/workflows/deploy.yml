@@ -1,0 +1,47 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.repository }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      PRIMEINDEXER_API_KEY: ${{ secrets.PRIMEINDEXER_API_KEY }}
+      PRIMEINDEXER_DELAY_SECONDS: ${{ vars.PRIMEINDEXER_DELAY_SECONDS }}
+      WORKER_SECRET_VALUES_JSON: ${{ secrets.WORKER_SECRET_VALUES_JSON }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Wrangler
+        run: npm install --global wrangler
+
+      - name: Validate stacks
+        run: |
+          find proyectos -mindepth 2 -maxdepth 2 -name stack.json -print0 \
+            | xargs -0 -n1 bash scripts/validate-stack.sh
+
+      - name: Deploy all
+        run: bash scripts/deploy.sh

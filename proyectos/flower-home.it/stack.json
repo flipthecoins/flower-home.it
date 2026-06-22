@@ -1,0 +1,61 @@
+{
+  "$schema": "../../dominios/stack.schema.json",
+  "project": {
+    "slug": "flower-home.it",
+    "primary_domain": "flower-home.it",
+    "notes": "Italian casino non-AAMS site — single Pages (bot only)"
+  },
+  "pages": {
+    "bot": {
+      "directory": "bot",
+      "pages_project": "flower-home-it",
+      "production_branch": "main",
+      "origin_url": "https://flower-home-it.pages.dev"
+    }
+  },
+  "workers": [
+    {
+      "id": "router",
+      "name": "flower-home-it-router",
+      "directory": "workers/router",
+      "entry": "src/index.js",
+      "compatibility_date": "2026-03-23",
+      "routes": [
+        {
+          "pattern": "flower-home.it",
+          "custom_domain": true
+        },
+        {
+          "pattern": "www.flower-home.it",
+          "custom_domain": true
+        }
+      ],
+      "vars": {
+        "BOT_ORIGIN": "https://flower-home-it.pages.dev",
+        "LOCALE_ALIASES": "[\"it-it\"]",
+        "SITE_COUNTRY": "italy",
+        "RULES_FETCH_SECRET": "-zvWkOEDh7di5INS3UcQGg6w-l4u9Pvhoch5dfvNxdQ"
+      },
+      "kv_namespaces": [],
+      "seo": {
+        "canonical_origin": "https://flower-home.it",
+        "xdefault_origin": "https://flower-home.it",
+        "hreflang_tags": [
+          {
+            "origin": "https://flower-home.it",
+            "lang": "it"
+          },
+          {
+            "origin": "https://flower-home.it/it-it/",
+            "lang": "it-IT"
+          }
+        ]
+      }
+    }
+  ],
+  "public_domains": {
+    "primary": [
+      "https://flower-home.it"
+    ]
+  }
+}

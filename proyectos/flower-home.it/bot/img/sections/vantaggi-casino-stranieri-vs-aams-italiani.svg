@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+    <stop offset="0%" stop-color="#14264a"/><stop offset="100%" stop-color="#050c1a"/>
+  </radialGradient>
+  <radialGradient id="spot" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e8c547" stop-opacity="0.17"/><stop offset="100%" stop-color="#e8c547" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="gv" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#f7e07a"/><stop offset="100%" stop-color="#c49a1a"/>
+  </linearGradient>
+  <linearGradient id="nv" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2f65cf"/><stop offset="100%" stop-color="#0f2060"/>
+  </linearGradient>
+  <linearGradient id="nlid" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3a72e0"/><stop offset="100%" stop-color="#1a3c9a"/>
+  </linearGradient>
+  <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#1e3a94"/><stop offset="100%" stop-color="#0a1640"/>
+  </linearGradient>
+  <filter id="ds" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#000" flood-opacity="0.55"/>
+  </filter>
+  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<rect width="1200" height="700" fill="url(#bg)"/>
+<ellipse cx="600" cy="335" rx="300" ry="230" fill="url(#spot)"/>
+<g filter="url(#ds)">
+
+<g transform="translate(600,358)">
+  <!-- Shadow -->
+  <ellipse cx="0" cy="188" rx="142" ry="18" fill="#000" opacity="0.32"/>
+  <!-- Stars above cup -->
+  <path d="M 76.0,-262.0 L 83.4,-242.2 L 104.5,-241.3 L 88.0,-228.1 L 93.6,-207.7 L 76.0,-219.4 L 58.4,-207.7 L 64.0,-228.1 L 47.5,-241.3 L 68.6,-242.2 Z" fill="url(#gv)" opacity="0.7"/><path d="M 0.0,-288.0 L 9.4,-262.9 L 36.1,-261.7 L 15.2,-245.1 L 22.3,-219.3 L 0.0,-234.0 L -22.3,-219.3 L -15.2,-245.1 L -36.1,-261.7 L -9.4,-262.9 Z" fill="url(#gv)"/><path d="M -76.0,-262.0 L -68.6,-242.2 L -47.5,-241.3 L -64.0,-228.1 L -58.4,-207.7 L -76.0,-219.4 L -93.6,-207.7 L -88.0,-228.1 L -104.5,-241.3 L -83.4,-242.2 Z" fill="url(#gv)" opacity="0.7"/>
+  <!-- Cup body (trapezoid: wider top, narrower bottom) -->
+  <path d="M -174,-196 L -126,106 L 126,106 L 174,-196 Z" fill="url(#gv)"/>
+  <!-- Cup inner shadow (depth) -->
+  <path d="M -155,-196 L -110,90 L 110,90 L 155,-196 Z" fill="rgba(0,0,0,0.16)"/>
+  <!-- Cup top rim -->
+  <rect x="-183" y="-208" width="366" height="32" rx="10" fill="#f7e07a"/>
+  <!-- Cup top shine -->
+  <rect x="-183" y="-208" width="366" height="16" rx="10" fill="rgba(255,255,255,0.22)"/>
+  <!-- Left handle (bezier arc) -->
+  <path d="M -126,30 C -210,16 -228,98 -198,122 C -178,138 -148,126 -126,106"
+    fill="none" stroke="url(#gv)" stroke-width="32" stroke-linecap="round"/>
+  <!-- Right handle -->
+  <path d="M 126,30 C 210,16 228,98 198,122 C 178,138 148,126 126,106"
+    fill="none" stroke="url(#gv)" stroke-width="32" stroke-linecap="round"/>
+  <!-- Stem -->
+  <rect x="-28" y="106" width="56" height="72" fill="url(#gv)"/>
+  <!-- Base -->
+  <rect x="-120" y="178" width="240" height="28" rx="8" fill="#f7e07a"/>
+  <!-- Base underline (darker) -->
+  <rect x="-100" y="206" width="200" height="14" rx="5" fill="#c49a1a"/>
+</g>
+</g>
+<text x="600" y="612" text-anchor="middle" font-family="'Arial Black',Arial,sans-serif" font-weight="900" font-size="50" fill="#ffffff" letter-spacing="-1">VANTAGGI</text>
+<text x="600" y="650" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="rgba(255,255,255,0.34)" letter-spacing="6">CASINO STRANIERI VS ADM</text>
+<text x="600" y="686" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.14)" letter-spacing="3">flower-home.it</text>
+</svg>

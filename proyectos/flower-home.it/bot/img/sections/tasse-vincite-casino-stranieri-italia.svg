@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+    <stop offset="0%" stop-color="#14264a"/><stop offset="100%" stop-color="#050c1a"/>
+  </radialGradient>
+  <radialGradient id="spot" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e8c547" stop-opacity="0.17"/><stop offset="100%" stop-color="#e8c547" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="gv" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#f7e07a"/><stop offset="100%" stop-color="#c49a1a"/>
+  </linearGradient>
+  <linearGradient id="nv" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2f65cf"/><stop offset="100%" stop-color="#0f2060"/>
+  </linearGradient>
+  <linearGradient id="nlid" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#3a72e0"/><stop offset="100%" stop-color="#1a3c9a"/>
+  </linearGradient>
+  <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#1e3a94"/><stop offset="100%" stop-color="#0a1640"/>
+  </linearGradient>
+  <filter id="ds" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#000" flood-opacity="0.55"/>
+  </filter>
+  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<rect width="1200" height="700" fill="url(#bg)"/>
+<ellipse cx="600" cy="380" rx="380" ry="240" fill="url(#spot)" opacity="0.9"/>
+
+<g>
+  <!-- Horizontal accent lines (magazine style) -->
+  <rect x="200" y="230" width="800" height="4" rx="2" fill="url(#gv)" opacity="0.25"/>
+  <rect x="200" y="480" width="800" height="4" rx="2" fill="url(#gv)" opacity="0.25"/>
+  <!-- Label above -->
+  <text x="600" y="276" text-anchor="middle" font-family="'Arial Black',Arial,sans-serif" font-weight="900"
+    font-size="22" fill="url(#gv)" letter-spacing="12">VINCITE AI CASINO STRANIERI</text>
+  <!-- Giant 0% -->
+  <text x="600" y="466" text-anchor="middle" font-family="'Arial Black',Arial,sans-serif" font-weight="900"
+    font-size="280" fill="url(#gv)" filter="url(#glow)">0%</text>
+  <!-- Label below -->
+  <text x="600" y="524" text-anchor="middle" font-family="'Arial Black',Arial,sans-serif" font-weight="900"
+    font-size="22" fill="rgba(255,255,255,0.38)" letter-spacing="8">DI TASSE SULLE VINCITE</text>
+  <!-- Decorative corner marks -->
+  <path d="M 200,240 L 200,230 L 210,230" fill="none" stroke="url(#gv)" stroke-width="3" opacity="0.5"/>
+  <path d="M 990,240 L 990,230 L 980,230" fill="none" stroke="url(#gv)" stroke-width="3" opacity="0.5"/>
+  <path d="M 200,474 L 200,484 L 210,484" fill="none" stroke="url(#gv)" stroke-width="3" opacity="0.5"/>
+  <path d="M 990,474 L 990,484 L 980,484" fill="none" stroke="url(#gv)" stroke-width="3" opacity="0.5"/>
+</g>
+<text x="600" y="686" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="rgba(255,255,255,0.14)" letter-spacing="3">flower-home.it</text>
+</svg>
