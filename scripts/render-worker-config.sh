@@ -12,7 +12,6 @@ jq -c --arg worker_id "$WORKER_ID" --arg project_root "$PROJECT_ROOT" '
       name: .name,
       main: ($project_root + "/" + .directory + "/" + .entry),
       compatibility_date: .compatibility_date,
-      workers_dev: false,
       routes: .routes,
       vars: (
         (.vars // {}) +
