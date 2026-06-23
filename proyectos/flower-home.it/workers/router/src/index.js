@@ -346,15 +346,7 @@ async function injectVisitorMetaAndStyle(response, request, env) {
   const ct = response.headers.get("content-type") || "";
   if (!ct.includes("text/html")) return response;
 
-  const country = request.cf?.country || "";
-  const city = request.cf?.city || "";
-  const ip = request.headers.get("cf-connecting-ip") || "";
-  const vpn = isVpnRequest(request) ? "1" : "0";
-  const metaTags =
-    `<meta name="x-visitor-country" content="${country}">` +
-    `<meta name="x-visitor-city" content="${city}">` +
-    `<meta name="x-visitor-ip" content="${ip}">` +
-    `<meta name="x-visitor-vpn" content="${vpn}">`;
+  // Visitor geo data intentionally not exposed in HTML source (privacy).
 
   // Fetch style.json from rules-public (30s edge cache → usually <5ms).
   let s = {};
@@ -424,15 +416,10 @@ async function injectVisitorMetaAndStyle(response, request, env) {
   } : {};
 
   let rewriter = new HTMLRewriter().on("head", {
-    element(el) { el.append(metaTags + colorStyle, { html: true }); }
+    element(el) { if (colorStyle) el.append(colorStyle, { html: true }); }
   });
 
-  if (hasStyle && s.site_title) {
-    const finalTitle = tmpl(s.site_title);
-    rewriter = rewriter.on("title", {
-      element(el) { el.setInnerContent(finalTitle); }
-    });
-  }
+  // Title is defined in the HTML source — not overridden by rules-public.
 
   for (const [key, val] of Object.entries(textMap)) {
     if (val) {
