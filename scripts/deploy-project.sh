@@ -15,4 +15,3 @@ fi
 bash "$ROOT_DIR/scripts/deploy-pages.sh" bot "$STACK_FILE"
 bash "$ROOT_DIR/scripts/deploy-workers.sh" "$STACK_FILE"
 bash "$ROOT_DIR/scripts/sync-secrets.sh" "$STACK_FILE"
-bash "$ROOT_DIR/scripts/submit-indexer.sh" "$STACK_FILE"
