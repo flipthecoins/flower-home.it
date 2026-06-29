@@ -453,6 +453,14 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Canonicalise to www
+    if (url.hostname === "flower-home.it") {
+      return Response.redirect(
+        `https://www.flower-home.it${url.pathname}${url.search}`,
+        301
+      );
+    }
+
     if (url.pathname === "/robots.txt") {
       return serveRobotsTxt(url.origin);
     }
