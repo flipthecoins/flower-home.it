@@ -334,7 +334,8 @@ function getLocaleAliases(env) {
 
 function resolveLocalePath(pathname, env) {
   const aliases = getLocaleAliases(env);
-  const normalized = pathname.toLowerCase().replace(/\/?$/, "/");
+  // Strip leading slash before comparing — aliases are stored without it (e.g. "it-it/")
+  const normalized = pathname.toLowerCase().replace(/\/?$/, "/").replace(/^\//, "");
   if (aliases.includes(normalized)) {
     return { rewritten: true, originalPath: pathname, proxyPath: "/" };
   }
