@@ -542,17 +542,7 @@ export default {
       return proxyToBackend(proxyRequest, clientOrigin);
     }
 
-    const isHtml = (response.headers.get("content-type") ?? "").includes("text/html");
-    if (isHtml && response.status === 200 && (proxyPath === "/") && env.CANONICAL_ORIGIN) {
-      const headers = new Headers(response.headers);
-      injectHreflang(headers, env);
-      return new Response(response.body, {
-        status: response.status,
-        statusText: response.statusText,
-        headers
-      });
-    }
-
+    // Link headers (canonical + hreflang) desactivados — ya están en el HTML
     return response;
   }
 };
