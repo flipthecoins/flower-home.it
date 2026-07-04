@@ -1824,6 +1824,7 @@ tr:hover td { background: #eff6ff; }
 
 @media (max-width: 760px) {
   .page-hero { padding: var(--sp-8) 0; }
-  .page-hero__inner { grid-template-columns: 1fr; gap: var(--sp-6); }
-  .page-hero__img { display: none; }
+  .page-hero__inner { grid-template-columns: 1fr; gap: var(--sp-5); }
+  .page-hero__img { justify-content: center; }
+  .page-hero__img img { max-width: 260px; margin: 0 auto; }
 }
