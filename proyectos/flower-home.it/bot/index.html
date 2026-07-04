@@ -1099,28 +1099,6 @@
             langDrop.addEventListener('click', function(e) { e.stopPropagation(); });
         }
 
-        var burger = document.getElementById('navBurger');
-        var mobileNav = document.getElementById('mobileNav');
-        var closeBtn = document.getElementById('navClose');
-        var mobileLinks = document.querySelectorAll('.nav__mobile-link');
-
-        function openMenu(){
-            mobileNav.classList.add('is-open');
-            burger.setAttribute('aria-expanded','true');
-            document.body.style.overflow='hidden';
-        }
-        function closeMenu(){
-            mobileNav.classList.remove('is-open');
-            burger.setAttribute('aria-expanded','false');
-            document.body.style.overflow='';
-        }
-        burger.addEventListener('click', openMenu);
-        closeBtn.addEventListener('click', closeMenu);
-        mobileLinks.forEach(function(l){ l.addEventListener('click', closeMenu); });
-        mobileNav.addEventListener('click', function(e){
-            if(e.target === mobileNav) closeMenu();
-        });
-
         // ── STICKY BONUS BAR ──
         var stickyBar    = document.getElementById('stickyBonus');
         var stickyClose  = document.getElementById('stickyClose');
