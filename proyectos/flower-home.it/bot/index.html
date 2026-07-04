@@ -17,7 +17,8 @@
     <style>
     .author-box{border:1px solid #e8e8e8;border-radius:10px;padding:24px 28px;margin:40px 0;background:#fafafa}
     .author-box__header{display:flex;align-items:center;gap:16px;margin-bottom:14px}
-    .author-box__avatar{width:64px;height:64px;border-radius:50%;background:#e0e0e0;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:26px}
+    .author-box__avatar{width:64px;height:64px;border-radius:50%;background:#e0e0e0;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px}
+    .author-box__avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
     .author-box__name{display:block;font-weight:700;font-size:1rem;color:#1a1a1a}
     .author-box__role{display:block;font-size:.85rem;color:#666;margin-top:2px}
     .author-box__bio{margin:0;font-size:.95rem;color:#333;line-height:1.7}
@@ -803,7 +804,9 @@
 
                 <div class="author-box">
                     <div class="author-box__header">
-                        <div class="author-box__avatar" aria-hidden="true">✍️</div>
+                        <div class="author-box__avatar">
+                            <img src="img/luca-esposito.webp" alt="Luca Esposito" width="64" height="64" loading="lazy">
+                        </div>
                         <div>
                             <strong class="author-box__name">Luca Esposito</strong>
                             <span class="author-box__role">Caporedattore · FlowerHome (flowerhome.com.tw)</span>
