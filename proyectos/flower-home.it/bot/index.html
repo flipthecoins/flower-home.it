@@ -50,9 +50,17 @@
                 <img src="img/logo-flower-home.svg" alt="FlowerHome Casino Non AAMS" height="40">
             </a>
             <nav class="nav" id="mainNav" aria-label="Navigazione principale">
-                <div class="nav__lang">
-                    <a href="https://www.flower-home.it/" class="nav__lang-link nav__lang-link--active" hreflang="it" title="Italiano">🇮🇹 <span>IT</span></a>
-                    <a href="https://casino-non-aams.flower-home.it/it-it/" class="nav__lang-link" hreflang="it-IT" title="Italiano (Italia)">🇮🇹 <span>IT-IT</span></a>
+                <div class="nav__lang-drop" id="langDrop">
+                    <button class="nav__lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Seleziona lingua">
+                        🇮🇹 <span class="nav__lang-label">IT</span>
+                        <svg class="nav__lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="nav__lang-menu" role="menu">
+                        <a href="https://www.flower-home.it/" class="nav__lang-opt nav__lang-opt--active" hreflang="it" role="menuitem">🇮🇹 <span>IT</span></a>
+                        <a href="https://casino-non-aams.flower-home.it/it-it/" class="nav__lang-opt" hreflang="it-IT" role="menuitem">🇮🇹 <span>IT-IT</span></a>
+                    </div>
                 </div>
                 <a href="https://casino-non-aams.flower-home.it/" class="nav__cta">Casino Non AAMS</a>
             </nav>
@@ -1072,6 +1080,22 @@
 
     <script>
     (function(){
+        // ── LANGUAGE DROPDOWN ──
+        var langDrop = document.getElementById('langDrop');
+        if (langDrop) {
+            var langBtn = langDrop.querySelector('.nav__lang-btn');
+            langBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var open = langDrop.classList.toggle('is-open');
+                langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            document.addEventListener('click', function() {
+                langDrop.classList.remove('is-open');
+                langBtn.setAttribute('aria-expanded', 'false');
+            });
+            langDrop.addEventListener('click', function(e) { e.stopPropagation(); });
+        }
+
         var burger = document.getElementById('navBurger');
         var mobileNav = document.getElementById('mobileNav');
         var closeBtn = document.getElementById('navClose');
