@@ -1768,6 +1768,19 @@ tr:hover td { background: #eff6ff; }
   gap: var(--sp-10);
 }
 
+.update-tag--hero {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.75);
+  margin-bottom: var(--sp-3);
+}
+
+.update-tag--hero a {
+  color: var(--c-gold-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .page-hero__text .page-title {
   color: #fff;
   margin-top: 0;
