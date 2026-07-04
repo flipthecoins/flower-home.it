@@ -1135,6 +1135,14 @@ tr:hover td { background: #eff6ff; }
   gap: var(--sp-3);
 }
 
+.toplist-intro {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  line-height: var(--lh-base);
+  margin: 0 0 var(--sp-5);
+  max-width: 720px;
+}
+
 .toplist-lead::before {
   content: '';
   display: inline-block;
