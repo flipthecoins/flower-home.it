@@ -1102,11 +1102,11 @@
         // ── STICKY BONUS BAR ──
         var stickyBar    = document.getElementById('stickyBonus');
         var stickyClose  = document.getElementById('stickyClose');
-        var toplistFirst = document.querySelector('.toplist__item');
+        var toplist      = document.querySelector('.toplist');
         var dismissed    = false;
 
-        if (stickyBar && toplistFirst) {
-            var triggerY = toplistFirst.offsetTop + toplistFirst.offsetHeight;
+        if (stickyBar && toplist) {
+            var triggerY = toplist.offsetTop + toplist.offsetHeight;
             function checkSticky() {
                 if (dismissed) return;
                 var scrolled = window.pageYOffset || document.documentElement.scrollTop;
