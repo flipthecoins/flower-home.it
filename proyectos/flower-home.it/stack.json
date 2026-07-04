@@ -32,6 +32,11 @@
         {
           "pattern": "migliori-casino-non-aams.flower-home.it",
           "custom_domain": true
+        },
+        
+        {
+          "pattern": "casino-non-aams.flower-home.it",
+          "custom_domain": true
         }
       ],
       "vars": {
