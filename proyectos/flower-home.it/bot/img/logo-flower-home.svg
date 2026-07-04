@@ -1,12 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" fill="none">
-  <!-- Pétalo verde — arriba -->
-  <path d="M22,22 C16,20 15,8 22,3 C29,8 28,20 22,22Z" fill="#009246"/>
-  <!-- Pétalo blanco — abajo derecha -->
-  <path d="M22,22 C16,20 15,8 22,3 C29,8 28,20 22,22Z" fill="#f2f2f2" transform="rotate(120 22 22)"/>
-  <!-- Pétalo rojo — abajo izquierda -->
-  <path d="M22,22 C16,20 15,8 22,3 C29,8 28,20 22,22Z" fill="#ce2b37" transform="rotate(240 22 22)"/>
-  <!-- Centro gold exterior -->
-  <circle cx="22" cy="22" r="6.5" fill="#d4af37"/>
-  <!-- Centro gold interior (highlight) -->
-  <circle cx="22" cy="22" r="4" fill="#f0cc5e"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 64" role="img" aria-label="FlowerHome Casino Non AAMS">
+  <title>FlowerHome Casino Non AAMS</title>
+
+  <!-- ═══ ICON: Italian tricolor petals ═══ -->
+  <!-- All 3 petals share the same base shape, rotated around convergence point (32, 54) -->
+
+  <!-- Left petal — Italian green -->
+  <ellipse cx="32" cy="30" rx="9.5" ry="24"
+           fill="#009246"
+           transform="rotate(-30 32 54)"/>
+
+  <!-- Right petal — Italian red -->
+  <ellipse cx="32" cy="30" rx="9.5" ry="24"
+           fill="#CE2B37"
+           transform="rotate(30 32 54)"/>
+
+  <!-- Center petal — white, narrower, drawn on top -->
+  <ellipse cx="32" cy="30" rx="7.5" ry="24"
+           fill="#F0F0F0"/>
+
+  <!-- Gold convergence dot -->
+  <circle cx="32" cy="54" r="4.8" fill="#C9A84C"/>
+
+  <!-- ═══ WORDMARK ═══ -->
+  <!-- FLOWER-HOME.IT — bold, white -->
+  <text
+    x="66" y="36"
+    font-family="'Inter','Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-weight="800"
+    font-size="27"
+    fill="#FFFFFF"
+    letter-spacing="-0.3">FLOWER-HOME.IT</text>
+
+  <!-- Casino Non AAMS — regular, gold -->
+  <text
+    x="67" y="54"
+    font-family="'Inter','Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-weight="400"
+    font-size="12"
+    fill="#C9A84C"
+    letter-spacing="1.8">Casino Non AAMS</text>
 </svg>
