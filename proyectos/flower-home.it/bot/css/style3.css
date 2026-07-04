@@ -1834,7 +1834,6 @@ tr:hover td { background: #eff6ff; }
   background: rgba(255,255,255,0.1);
   border-color: rgba(255,255,255,0.2);
   color: rgba(255,255,255,0.75);
-  margin-bottom: var(--sp-3);
 }
 
 .update-tag--hero a {
