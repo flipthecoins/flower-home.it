@@ -1919,7 +1919,7 @@ tr:hover td { background: #eff6ff; }
 
 .page-hero__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr;
   align-items: center;
   gap: var(--sp-10);
 }
