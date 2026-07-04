@@ -1713,6 +1713,22 @@ tr:hover td { background: #eff6ff; }
   flex-shrink: 0;
 }
 
+.sticky-bonus__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+.sticky-bonus__logo-img {
+  height: 36px;
+  width: auto;
+  max-width: 70px;
+  object-fit: contain;
+}
+
 .sticky-bonus__info {
   flex: 1;
   min-width: 0;
