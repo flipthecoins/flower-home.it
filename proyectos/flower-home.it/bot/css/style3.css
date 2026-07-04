@@ -1726,3 +1726,27 @@ tr:hover td { background: #eff6ff; }
   .sticky-bonus__rank  { display: none; }
   .sticky-bonus__stars { display: none; }
 }
+
+/* ── Footer expandido ─────────────────────────────────── */
+.footer { padding: 0; text-align: left; }
+.footer__top { background: var(--c-navy-dark); padding: var(--sp-6) 0; }
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: var(--sp-5);
+  align-items: start;
+}
+.footer__title {
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  margin: 0 0 var(--sp-3);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.footer__links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.footer__links li::before { content: '→ '; color: rgba(255,255,255,0.3); }
+.footer__bottom { background: #080b18; padding: var(--sp-3) 0; text-align: center; }
+@media (max-width: 700px) {
+  .footer__grid { grid-template-columns: 1fr; gap: var(--sp-4); }
+}
