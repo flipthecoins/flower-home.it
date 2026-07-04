@@ -1350,6 +1350,7 @@ tr:hover td { background: #eff6ff; }
   letter-spacing: 0.01em;
   background: linear-gradient(135deg, #16a34a, #15803d);
   color: #ffffff !important;
+  text-decoration: none !important;
   box-shadow: 0 4px 14px rgba(22,163,74,0.40);
   transition: all var(--t-fast);
   width: 100%;
@@ -1376,7 +1377,7 @@ tr:hover td { background: #eff6ff; }
   border: 2px solid rgba(255,255,255,0.3);
   background: transparent;
   color: rgba(255,255,255,0.8) !important;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: all var(--t-fast);
   white-space: nowrap;
   width: 100%;
