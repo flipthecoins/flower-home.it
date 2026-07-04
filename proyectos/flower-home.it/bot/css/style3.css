@@ -1155,9 +1155,9 @@ tr:hover td { background: #eff6ff; }
 /* Main row */
 .toplist__main {
   display: grid;
-  grid-template-columns: 56px 120px 1fr 240px 190px;
+  grid-template-columns: 56px 160px 1fr 240px 190px;
   align-items: stretch;
-  min-height: 136px;
+  min-height: 160px;
 }
 
 /* Rank */
@@ -1189,8 +1189,8 @@ tr:hover td { background: #eff6ff; }
 }
 
 .toplist__logo-img {
-  max-width: 90px;
-  max-height: 70px;
+  max-width: 130px;
+  max-height: 90px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -1216,10 +1216,10 @@ tr:hover td { background: #eff6ff; }
 }
 
 .toplist__name {
-  font-size: 1.2rem;
+  font-size: 1.55rem;
   font-weight: 800;
   color: #fff;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .toplist__rating {
@@ -1227,7 +1227,7 @@ tr:hover td { background: #eff6ff; }
   align-items: center;
   gap: 5px;
   color: var(--c-gold);
-  font-size: var(--fs-base);
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1;
 }
