@@ -1121,11 +1121,10 @@ tr:hover td { background: #eff6ff; }
 }
 
 .toplist-intro {
-  font-size: var(--fs-sm);
-  color: var(--c-text-muted);
+  font-size: var(--fs-base);
+  color: var(--c-text);
   line-height: var(--lh-base);
   margin: 0 0 var(--sp-5);
-  max-width: 720px;
 }
 
 .toplist {
