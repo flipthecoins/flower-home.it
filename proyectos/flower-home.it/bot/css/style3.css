@@ -1188,21 +1188,13 @@ tr:hover td { background: #eff6ff; }
   border-right: 1px solid rgba(255,255,255,0.07);
 }
 
-.toplist__logo-init {
-  width: 74px;
-  height: 74px;
-  border-radius: var(--r-md);
-  background: rgba(212,175,55,0.12);
-  border: 1px solid rgba(212,175,55,0.28);
-  color: var(--c-gold);
-  font-size: 1.35rem;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: -0.01em;
-  text-align: center;
-  line-height: 1;
+.toplist__logo-img {
+  max-width: 90px;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Info column */
