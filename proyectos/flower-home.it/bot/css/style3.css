@@ -1811,7 +1811,7 @@ tr:hover td { background: #eff6ff; }
 .footer__top {
   background: var(--c-navy-dark);
   border-top: 3px solid var(--c-gold);
-  padding: var(--sp-7) 0 var(--sp-6);
+  padding: var(--sp-8) 0;
 }
 
 /* Reset the generic .footer .container flex so the grid inside can work */
