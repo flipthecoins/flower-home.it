@@ -1905,7 +1905,16 @@ tr:hover td { background: #eff6ff; }
 
 .page-hero__img {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+}
+
+.page-hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
   justify-content: center;
 }
 
