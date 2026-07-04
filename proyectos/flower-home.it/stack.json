@@ -30,7 +30,7 @@
           "custom_domain": true
         },
         {
-          "pattern": "migliori-casino-non-aams.flower-home.it",
+          "pattern": "casino-non-aams.flower-home.it",
           "custom_domain": true
         },
         
@@ -51,15 +51,15 @@
         "xdefault_origin": "https://www.flower-home.it",
         "hreflang_tags": [
           {
-            "origin": "https://migliori-casino-non-aams.flower-home.it/",
+            "origin": "https://casino-non-aams.flower-home.it/",
             "lang": "it"
           },
           {
-            "origin": "https://migliori-casino-non-aams.flower-home.it/it-it/",
+            "origin": "https://casino-non-aams.flower-home.it/it-it/",
             "lang": "it-IT"
           },
           {
-            "origin": "https://migliori-casino-non-aams.flower-home.it/it-it/",
+            "origin": "https://casino-non-aams.flower-home.it/it-it/",
             "lang": "it-CH"
           }
         ]
