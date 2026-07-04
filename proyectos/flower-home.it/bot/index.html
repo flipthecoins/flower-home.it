@@ -1122,28 +1122,29 @@
         });
 
         // ── STICKY BONUS BAR ──
-        var stickyBar   = document.getElementById('stickyBonus');
-        var stickyClose = document.getElementById('stickyClose');
+        var stickyBar    = document.getElementById('stickyBonus');
+        var stickyClose  = document.getElementById('stickyClose');
         var toplistFirst = document.querySelector('.toplist__item');
-        var dismissed   = false;
+        var dismissed    = false;
 
         if (stickyBar && toplistFirst) {
-            var observer = new IntersectionObserver(function(entries) {
+            function checkSticky() {
                 if (dismissed) return;
-                var entry = entries[0];
-                // Mostrar cuando la primera card sale del viewport por arriba
-                if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+                var top = toplistFirst.getBoundingClientRect().top;
+                if (top < -80) {
                     stickyBar.classList.add('is-visible');
                 } else {
                     stickyBar.classList.remove('is-visible');
                 }
-            }, { threshold: 0 });
-            observer.observe(toplistFirst);
+            }
+            window.addEventListener('scroll', checkSticky, { passive: true });
+            checkSticky();
 
             stickyClose.addEventListener('click', function() {
                 dismissed = true;
                 stickyBar.classList.remove('is-visible');
                 stickyBar.classList.add('is-dismissed');
+                window.removeEventListener('scroll', checkSticky);
             });
         }
     })();
