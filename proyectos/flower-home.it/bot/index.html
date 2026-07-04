@@ -1121,21 +1121,21 @@
         // ── STICKY BONUS BAR ──
         var stickyBar   = document.getElementById('stickyBonus');
         var stickyClose = document.getElementById('stickyClose');
-        var toplist     = document.querySelector('.toplist');
+        var toplistFirst = document.querySelector('.toplist__item');
         var dismissed   = false;
 
-        if (stickyBar && toplist) {
+        if (stickyBar && toplistFirst) {
             var observer = new IntersectionObserver(function(entries) {
                 if (dismissed) return;
                 var entry = entries[0];
-                // Mostrar cuando el toplist sale del viewport por arriba
+                // Mostrar cuando la primera card sale del viewport por arriba
                 if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
                     stickyBar.classList.add('is-visible');
                 } else {
                     stickyBar.classList.remove('is-visible');
                 }
             }, { threshold: 0 });
-            observer.observe(toplist);
+            observer.observe(toplistFirst);
 
             stickyClose.addEventListener('click', function() {
                 dismissed = true;
