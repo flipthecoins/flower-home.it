@@ -1478,7 +1478,7 @@ tr:hover td { background: #eff6ff; }
   .toplist__cta {
     grid-row: 3;
     grid-column: 1 / 4;
-    flex-direction: row;
+    flex-direction: row-reverse;
     border-top: 1px solid rgba(255,255,255,0.07);
     padding: var(--sp-3);
     gap: var(--sp-2);
