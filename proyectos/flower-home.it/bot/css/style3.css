@@ -1310,7 +1310,7 @@ tr:hover td { background: #eff6ff; }
   gap: 4px;
 }
 
-.toplist__bonus-label::before { content: '🎁'; font-size: 11px; }
+.toplist__bonus-label::before { content: ''; display: none; }
 
 .toplist__bonus-value {
   font-size: var(--fs-sm);
