@@ -1106,10 +1106,11 @@
         var dismissed    = false;
 
         if (stickyBar && toplistFirst) {
+            var triggerY = toplistFirst.offsetTop + toplistFirst.offsetHeight;
             function checkSticky() {
                 if (dismissed) return;
-                var top = toplistFirst.getBoundingClientRect().top;
-                if (top < -80) {
+                var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrolled > triggerY) {
                     stickyBar.classList.add('is-visible');
                 } else {
                     stickyBar.classList.remove('is-visible');
