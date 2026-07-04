@@ -1878,11 +1878,12 @@ tr:hover td { background: #eff6ff; }
   text-underline-offset: 3px;
 }
 
-.page-hero__text .page-title {
+.page-title--hero {
   color: #fff;
   margin-top: 0;
-  margin-bottom: var(--sp-5);
-  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  margin-bottom: var(--sp-6);
+  font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
 
 .page-hero__text p {
