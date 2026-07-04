@@ -1015,14 +1015,24 @@ ul, ol { list-style: none; }
 
 /* ── 21. FOOTER ── */
 .footer {
+  background: var(--c-navy-dark);
   color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: var(--sp-5) 0;
   font-size: var(--fs-xs);
 }
 
-.footer p { margin: 0 0 6px; color: rgba(255,255,255,0.65); }
+.footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.footer p { margin: 0; color: rgba(255,255,255,0.45); }
 
 .footer a {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.6);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1720,6 +1730,8 @@ tr:hover td { background: #eff6ff; }
 /* ── Footer expandido ─────────────────────────────────── */
 .footer { padding: 0; text-align: left; }
 .footer__top { background: var(--c-navy-dark); padding: var(--sp-6) 0; }
+/* Override: el .footer .container base usa flex-column, lo reseteamos aquí */
+.footer__top .container { display: block; align-items: unset; }
 .footer__grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1.5fr;
