@@ -1884,10 +1884,11 @@ tr:hover td { background: #eff6ff; }
   background: rgba(255,255,255,0.1);
   border-color: rgba(255,255,255,0.2);
   color: rgba(255,255,255,0.75);
-  display: block;
-  width: fit-content;
+  display: inline-flex;
+  max-width: 100%;
+  flex-wrap: wrap;
   margin-top: var(--sp-5);
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .update-tag--hero a {
