@@ -1935,6 +1935,9 @@ tr:hover td { background: #eff6ff; }
   white-space: normal;
 }
 
+.update-tag__br { display: none; }
+@media (max-width: 600px) { .update-tag__br { display: block; } }
+
 .update-tag--hero a {
   color: var(--c-gold-light);
   text-decoration: underline;
