@@ -139,18 +139,21 @@ ul, ol { list-style: none; }
 
 .logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 3px;
   flex-shrink: 0;
   text-decoration: none;
 }
-.logo img { width: 44px; height: 44px; flex-shrink: 0; }
+.logo img { width: 36px; height: 36px; flex-shrink: 0; }
 .logo__text {
-  font-size: 15px;
+  font-size: 8.5px;
   font-weight: 700;
-  color: #fff;
-  line-height: 1.2;
+  color: rgba(255,255,255,0.72);
+  line-height: 1;
   white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 /* ── NAV ── */
