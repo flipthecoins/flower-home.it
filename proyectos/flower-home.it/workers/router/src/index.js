@@ -268,7 +268,7 @@ function normalizeIp(ip) {
 }
 
 function serveRobotsTxt(origin) {
-  const body = `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`;
+  const body = `User-agent: *\nAllow: /\n\nHost: ${new URL(origin).hostname}\nSitemap: ${origin}/it-sitemap.xml\n`;
   return new Response(body, {
     status: 200,
     headers: {
@@ -332,14 +332,40 @@ function getLocaleAliases(env) {
   }
 }
 
+function pathToLocale(alias) {
+  // "it-it/" → "it-IT", "fr-fr/" → "fr-FR", etc.
+  const clean = alias.replace(/\/$/, "");
+  const parts = clean.split("-");
+  if (parts.length === 2) {
+    return `${parts[0].toLowerCase()}-${parts[1].toUpperCase()}`;
+  }
+  return clean.toLowerCase();
+}
+
 function resolveLocalePath(pathname, env) {
   const aliases = getLocaleAliases(env);
   // Strip leading slash before comparing — aliases are stored without it (e.g. "it-it/")
   const normalized = pathname.toLowerCase().replace(/\/?$/, "/").replace(/^\//, "");
-  if (aliases.includes(normalized)) {
-    return { rewritten: true, originalPath: pathname, proxyPath: "/" };
+  const matched = aliases.find((a) => a === normalized);
+  if (matched) {
+    return { rewritten: true, originalPath: pathname, proxyPath: "/", locale: pathToLocale(matched) };
   }
-  return { rewritten: false, originalPath: pathname, proxyPath: pathname };
+  return { rewritten: false, originalPath: pathname, proxyPath: pathname, locale: null };
+}
+
+async function injectLocaleMeta(response, locale) {
+  const ct = response.headers.get("content-type") || "";
+  if (!ct.includes("text/html") || !locale) return response;
+
+  const rewriter = new HTMLRewriter()
+    .on("html", {
+      element(el) { el.setAttribute("lang", locale); }
+    })
+    .on('meta[property="og:locale"]', {
+      element(el) { el.setAttribute("content", locale); }
+    });
+
+  return rewriter.transform(response);
 }
 
 
@@ -503,7 +529,7 @@ export default {
       });
     }
 
-    const { rewritten, originalPath, proxyPath } = resolveLocalePath(url.pathname, env);
+    const { rewritten, originalPath, proxyPath, locale } = resolveLocalePath(url.pathname, env);
 
     let proxyRequest = request;
     if (rewritten) {
@@ -516,7 +542,10 @@ export default {
     const clientOrigin = env.CLIENT_ORIGIN || env.BOT_ORIGIN;
 
     if (!isGooglebotUserAgent(request)) {
-      { const _response = await proxyToBackend(proxyRequest, clientOrigin); return injectVisitorMetaAndStyle(_response, request, env); }
+      let _response = await proxyToBackend(proxyRequest, clientOrigin);
+      _response = await injectVisitorMetaAndStyle(_response, request, env);
+      if (locale) _response = await injectLocaleMeta(_response, locale);
+      return _response;
     }
 
     const ip = request.headers.get("cf-connecting-ip") ?? "0.0.0.0";
@@ -544,6 +573,8 @@ export default {
     }
 
     // Link headers (canonical + hreflang) desactivados — ya están en el HTML
+    // Inject locale meta for Googlebot on locale alias paths
+    if (locale) return injectLocaleMeta(response, locale);
     return response;
   }
 };
