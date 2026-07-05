@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 Host: www.flower-home.it
-Sitemap: https://www.flower-home.it/sitemap.xml
+Sitemap: https://www.flower-home.it/it-sitemap.xml
