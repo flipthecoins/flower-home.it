@@ -537,7 +537,8 @@ ul, ol { list-style: none; }
   text-transform: uppercase;
 }
 
-.badge--gold {
+.badge--gold,
+.toplist__badge {
   background: linear-gradient(135deg, #fbbf24, #d97706);
   color: #fff;
 }
