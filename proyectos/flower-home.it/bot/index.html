@@ -43,6 +43,39 @@
     }
     </script>
     <!-- TOPLIST_STYLE_START -->
+<style id="toplist-custom-colors">
+:root {
+  --c-navy: #1d3557;
+  --c-navy-dark: #1d3557;
+  --c-navy-light: #1d3557;
+  --c-gold: #d4af37;
+  --c-gold-light: #d4af37;
+  --c-red: #e63946;
+  --c-red-dark: #e63946;
+  --c-text: #ffffff;
+}
+.toplist__item { background: #1d3557 !important; }
+.toplist__name, .toplist__bonus-value { color: #ffffff !important; }
+.toplist__bonus-label, .toplist__footer-label { color: #ffffff !important; opacity: .5; }
+.toplist__footer-val, .toplist__license { color: #ffffff !important; opacity: .75; }
+.btn--play {
+  background: linear-gradient(135deg, #16a34a, color-mix(in srgb, #16a34a 78%, #000)) !important;
+  box-shadow: 0 4px 14px #16a34a66 !important;
+}
+.btn--play::after { content: '→'; transition: transform .15s ease; }
+.btn--play:hover {
+  background: linear-gradient(135deg, color-mix(in srgb, #16a34a 88%, #000), color-mix(in srgb, #16a34a 68%, #000)) !important;
+  box-shadow: 0 6px 20px #16a34a80 !important;
+  transform: translateY(-1px);
+}
+.btn--play:hover::after { transform: translateX(3px); }
+.toplist__logo { padding: 8px !important; }
+.toplist__logo-img { max-width: calc(100% - 0px) !important; max-height: 90px !important; width: auto !important; height: auto !important; object-fit: contain !important; display: block !important; }
+@media (max-width: 600px) {
+  .toplist__cta { flex-direction: row !important; }
+  .btn--review { order: -1; }
+}
+</style>
 <!-- TOPLIST_STYLE_END -->
 <style id="toplist-custom-colors">
 :root {
@@ -741,6 +774,552 @@
             <div class="toplist__footer-col">
                 <span class="toplist__footer-label">Metodo di deposito</span>
                 <span class="toplist__footer-val">Carte di credito/debito, PayPal, Postepay, Bonifico bancario</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">17</div>
+            <div class="toplist__logo">
+                <img src="img/logos/wildtokyo.png" alt="Wild Tokyo" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Wild Tokyo</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao eGaming</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €150 + 50 giri gratis sul primo deposito</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/wildtokyo" class="btn btn--play" data-cs="wildtokyo:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/wildtokyo" class="btn btn--review" data-cs="wildtokyo:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Carte di credito/debito, Skrill, Neteller, MiFinity, Paysafecard, Neosurf, AstroPay, Bitcoin/USDT/Dogecoin/TRX/LTC/ETH</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">18</div>
+            <div class="toplist__logo">
+                <img src="img/logos/boomerang.png" alt="Boomerang" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Boomerang</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao (Rabidi N.V., lic. 8048/JAZ)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €500 + 200 giri gratis</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/boomerang" class="btn btn--play" data-cs="boomerang:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/boomerang" class="btn btn--review" data-cs="boomerang:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Carte di credito/debito, Neteller, Skrill, ecoPayz, Paysafecard, Bitcoin/ETH/LTC/XRP</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">19</div>
+            <div class="toplist__logo">
+                <img src="img/logos/needforspin.png" alt="Need For Spin" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Need For Spin</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao (GBL Solutions N.V.)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €300 + 100 giri gratis (pacchetto totale fino a €1.500 + 250 giri gratis)</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/needforspin" class="btn btn--play" data-cs="needforspin:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/needforspin" class="btn btn--review" data-cs="needforspin:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Carte di credito/debito, e-wallet, criptovalute</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">20</div>
+            <div class="toplist__logo">
+                <img src="img/logos/rollingslots.png" alt="Rolling Slots" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Rolling Slots</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao eGaming</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €500 + 50 giri gratis</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/rollingslots" class="btn btn--play" data-cs="rollingslots:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/rollingslots" class="btn btn--review" data-cs="rollingslots:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Criptovalute, Skrill, Neteller, carte di credito/debito</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">21</div>
+            <div class="toplist__logo">
+                <img src="img/logos/freshbet.webp" alt="Freshbet" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Freshbet</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao (Ryker B.V., lic. 1668/JAZ)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">155% fino a €500 sul primo deposito (pacchetto fino a €1.500 su 3 depositi)</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/freshbet" class="btn btn--play" data-cs="freshbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/freshbet" class="btn btn--review" data-cs="freshbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Carte di credito/debito, e-wallet standard</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">22</div>
+            <div class="toplist__logo">
+                <img src="img/logos/minocasino.png" alt="Mino Casino" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Mino Casino</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao OGL/2024/589/055 (GBL Solutions N.V.)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">Fino a €500 + 100 giri gratis, wagering 45x, max €5 a giro</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/minocasino" class="btn btn--play" data-cs="minocasino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/minocasino" class="btn btn--review" data-cs="minocasino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Mastercard/Visa, Skrill, Neteller, MiFinity, Revolut, BTC/ETH/LTC/DOGE/USDT, Apple/Google Pay, Klarna</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">23</div>
+            <div class="toplist__logo">
+                <img src="img/logos/spinjo.png" alt="Spinjo" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Spinjo</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao OGL/2025/4606/5952</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">Fino a €5.000 + 300 giri gratis sui primi 4 depositi</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/spinjo" class="btn btn--play" data-cs="spinjo:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/spinjo" class="btn btn--review" data-cs="spinjo:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Carte, bonifico bancario, Skrill, Neteller, MiFinity, Neosurf, Interac, BTC/ETH/LTC/BCH/DOGE/USDT</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">24</div>
+            <div class="toplist__logo">
+                <img src="img/logos/dollycasino.png" alt="Dolly Casino" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Dolly Casino</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao (lic. 8048/JAZ)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100-225% fino a €1.000 su 3 depositi + 100 giri gratis</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/dollycasino" class="btn btn--play" data-cs="dollycasino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/dollycasino" class="btn btn--review" data-cs="dollycasino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Criptovalute, carte, e-wallet standard</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">25</div>
+            <div class="toplist__logo">
+                <img src="img/logos/mystake.jpg" alt="MyStake Casino" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">MyStake Casino</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao Gaming Control Board</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">Pacchetto di benvenuto fino a €1.500</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/mystake" class="btn btn--play" data-cs="mystake:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/mystake" class="btn btn--review" data-cs="mystake:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Carte, Skrill, Neteller, MiFinity, SEPA, BTC/ETH/XRP/BCH/USDT/XMR/DASH</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€10</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">26</div>
+            <div class="toplist__logo">
+                <img src="img/logos/goldenbet.png" alt="GoldenBet" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">GoldenBet</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao, lic. GLH-OCCHKTW0705052021 (validità da verificare)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €500 + giri gratis (casinò)</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/goldenbet" class="btn btn--play" data-cs="goldenbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/goldenbet" class="btn btn--review" data-cs="goldenbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Postepay, carte, PayPal, Skrill, Neteller, MyBank, bonifico bancario, BTC/ETH/USDT/DOGE/USDC/TRX/LTC/BCH/XRP/DASH</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€10</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">27</div>
+            <div class="toplist__logo">
+                <img src="img/logos/godz.png" alt="Godz" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Godz</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao (lic. 8048/JAZ)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €2.000 + 300 giri gratis</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/godz" class="btn btn--play" data-cs="godz:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/godz" class="btn btn--review" data-cs="godz:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Visa/Mastercard, Skrill, Neteller, BTC/ETH</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">28</div>
+            <div class="toplist__logo">
+                <img src="img/logos/vipluck.png" alt="Vipluck" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Vipluck</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza non chiara (Curaçao GCB-2024-4824 vs. fonti alternative)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €2.000 + 300 giri gratis sui primi 3 depositi</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/vipluck" class="btn btn--play" data-cs="vipluck:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/vipluck" class="btn btn--review" data-cs="vipluck:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Carte, PostePay, Skrill, Neteller, BTC/ETH/USDT/USDC/LTC/XRP/ADA/DOGE/SOL</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€20</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">29</div>
+            <div class="toplist__logo">
+                <img src="img/logos/scored.png" alt="Scored" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Scored</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao Gaming Control Board (Willx N.V.)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">Fino a €1.000 + 100 giri gratis</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/scored" class="btn btn--play" data-cs="scored:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/scored" class="btn btn--review" data-cs="scored:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Metodi di pagamento standard non dettagliati</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Deposito minimo</span>
+                <span class="toplist__footer-val">€10</span>
+            </div>
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Casinò verificato</span>
+                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist__item" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">30</div>
+            <div class="toplist__logo">
+                <img src="img/logos/1bet.svg" alt="1BET" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">1BET</span>
+                    
+                </div>
+                
+                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao (Bellona N.V., lic. 8048/JAZ)</div>
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €500 + 200 giri gratis</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://link.flower-home.it/1bet" class="btn btn--play" data-cs="1bet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://link.flower-home.it/1bet" class="btn btn--review" data-cs="1bet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__footer">
+            <div class="toplist__footer-col">
+                <span class="toplist__footer-label">Metodo di deposito</span>
+                <span class="toplist__footer-val">Carte, e-wallet standard</span>
             </div>
             <div class="toplist__footer-col">
                 <span class="toplist__footer-label">Deposito minimo</span>
