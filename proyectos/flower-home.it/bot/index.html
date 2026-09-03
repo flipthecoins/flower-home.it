@@ -43,6 +43,39 @@
     }
     </script>
     <!-- TOPLIST_STYLE_START -->
+<style id="toplist-custom-colors">
+:root {
+  --c-navy: #1d3557;
+  --c-navy-dark: #1d3557;
+  --c-navy-light: #1d3557;
+  --c-gold: #d4af37;
+  --c-gold-light: #d4af37;
+  --c-red: #e63946;
+  --c-red-dark: #e63946;
+  --c-text: #ffffff;
+}
+.toplist__item { background: #1d3557 !important; }
+.toplist__name, .toplist__bonus-value { color: #ffffff !important; }
+.toplist__bonus-label, .toplist__footer-label { color: #ffffff !important; opacity: .5; }
+.toplist__footer-val, .toplist__license { color: #ffffff !important; opacity: .75; }
+.btn--play {
+  background: linear-gradient(135deg, #16a34a, color-mix(in srgb, #16a34a 78%, #000)) !important;
+  box-shadow: 0 4px 14px #16a34a66 !important;
+}
+.btn--play::after { content: '→'; transition: transform .15s ease; }
+.btn--play:hover {
+  background: linear-gradient(135deg, color-mix(in srgb, #16a34a 88%, #000), color-mix(in srgb, #16a34a 68%, #000)) !important;
+  box-shadow: 0 6px 20px #16a34a80 !important;
+  transform: translateY(-1px);
+}
+.btn--play:hover::after { transform: translateX(3px); }
+.toplist__logo { padding: 8px !important; }
+.toplist__logo-img { max-width: calc(100% - 0px) !important; max-height: 90px !important; width: auto !important; height: auto !important; object-fit: contain !important; display: block !important; }
+@media (max-width: 600px) {
+  .toplist__cta { flex-direction: row !important; }
+  .btn--review { order: -1; }
+}
+</style>
 <!-- TOPLIST_STYLE_END -->
 <style id="toplist-custom-colors">
 :root {
@@ -757,84 +790,6 @@
         <div class="toplist__main">
             <div class="toplist__rank">17</div>
             <div class="toplist__logo">
-                <img src="img/logos/wildtokyo.png" alt="Wild Tokyo" class="toplist__logo-img">
-            </div>
-            <div class="toplist__info">
-                <div class="toplist__header">
-                    <span class="toplist__name">Wild Tokyo</span>
-                    
-                </div>
-                
-                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao eGaming</div>
-            </div>
-            <div class="toplist__bonus">
-                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
-                <span class="toplist__bonus-value">100% fino a €150 + 50 giri gratis sul primo deposito</span>
-            </div>
-            <div class="toplist__cta">
-                <a href="https://link.flower-home.it/wildtokyo" class="btn btn--play" data-cs="wildtokyo:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/wildtokyo" class="btn btn--review" data-cs="wildtokyo:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
-            </div>
-        </div>
-        <div class="toplist__footer">
-            <div class="toplist__footer-col">
-                <span class="toplist__footer-label">Metodo di deposito</span>
-                <span class="toplist__footer-val">Carte di credito/debito, Skrill, Neteller, MiFinity, Paysafecard, Neosurf, AstroPay, Bitcoin/USDT/Dogecoin/TRX/LTC/ETH</span>
-            </div>
-            <div class="toplist__footer-col">
-                <span class="toplist__footer-label">Deposito minimo</span>
-                <span class="toplist__footer-val">€20</span>
-            </div>
-            <div class="toplist__footer-col">
-                <span class="toplist__footer-label">Casinò verificato</span>
-                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="toplist__item" role="listitem">
-        <div class="toplist__main">
-            <div class="toplist__rank">18</div>
-            <div class="toplist__logo">
-                <img src="img/logos/boomerang.png" alt="Boomerang" class="toplist__logo-img">
-            </div>
-            <div class="toplist__info">
-                <div class="toplist__header">
-                    <span class="toplist__name">Boomerang</span>
-                    
-                </div>
-                
-                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> Licenza Curaçao (Rabidi N.V., lic. 8048/JAZ)</div>
-            </div>
-            <div class="toplist__bonus">
-                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
-                <span class="toplist__bonus-value">100% fino a €500 + 200 giri gratis</span>
-            </div>
-            <div class="toplist__cta">
-                <a href="https://link.flower-home.it/boomerang" class="btn btn--play" data-cs="boomerang:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/boomerang" class="btn btn--review" data-cs="boomerang:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
-            </div>
-        </div>
-        <div class="toplist__footer">
-            <div class="toplist__footer-col">
-                <span class="toplist__footer-label">Metodo di deposito</span>
-                <span class="toplist__footer-val">Carte di credito/debito, Neteller, Skrill, ecoPayz, Paysafecard, Bitcoin/ETH/LTC/XRP</span>
-            </div>
-            <div class="toplist__footer-col">
-                <span class="toplist__footer-label">Deposito minimo</span>
-                <span class="toplist__footer-val">€20</span>
-            </div>
-            <div class="toplist__footer-col">
-                <span class="toplist__footer-label">Casinò verificato</span>
-                <span class="toplist__footer-val">18+ | Si applicano i T&C</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="toplist__item" role="listitem">
-        <div class="toplist__main">
-            <div class="toplist__rank">19</div>
-            <div class="toplist__logo">
                 <img src="img/logos/needforspin.png" alt="Need For Spin" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
@@ -872,7 +827,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">20</div>
+            <div class="toplist__rank">18</div>
             <div class="toplist__logo">
                 <img src="img/logos/rollingslots.png" alt="Rolling Slots" class="toplist__logo-img">
             </div>
@@ -911,7 +866,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">21</div>
+            <div class="toplist__rank">19</div>
             <div class="toplist__logo">
                 <img src="img/logos/freshbet.webp" alt="Freshbet" class="toplist__logo-img">
             </div>
@@ -950,7 +905,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">22</div>
+            <div class="toplist__rank">20</div>
             <div class="toplist__logo">
                 <img src="img/logos/minocasino.png" alt="Mino Casino" class="toplist__logo-img">
             </div>
@@ -989,7 +944,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">23</div>
+            <div class="toplist__rank">21</div>
             <div class="toplist__logo">
                 <img src="img/logos/spinjo.png" alt="Spinjo" class="toplist__logo-img">
             </div>
@@ -1028,7 +983,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">24</div>
+            <div class="toplist__rank">22</div>
             <div class="toplist__logo">
                 <img src="img/logos/dollycasino.png" alt="Dolly Casino" class="toplist__logo-img">
             </div>
@@ -1067,7 +1022,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">25</div>
+            <div class="toplist__rank">23</div>
             <div class="toplist__logo">
                 <img src="img/logos/mystake.jpg" alt="MyStake Casino" class="toplist__logo-img">
             </div>
@@ -1106,7 +1061,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">26</div>
+            <div class="toplist__rank">24</div>
             <div class="toplist__logo">
                 <img src="img/logos/goldenbet.png" alt="GoldenBet" class="toplist__logo-img">
             </div>
@@ -1145,7 +1100,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">27</div>
+            <div class="toplist__rank">25</div>
             <div class="toplist__logo">
                 <img src="img/logos/godz.png" alt="Godz" class="toplist__logo-img">
             </div>
@@ -1184,7 +1139,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">28</div>
+            <div class="toplist__rank">26</div>
             <div class="toplist__logo">
                 <img src="img/logos/vipluck.png" alt="Vipluck" class="toplist__logo-img">
             </div>
@@ -1223,7 +1178,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">29</div>
+            <div class="toplist__rank">27</div>
             <div class="toplist__logo">
                 <img src="img/logos/scored_v2.png" alt="Scored" class="toplist__logo-img">
             </div>
@@ -1262,7 +1217,7 @@
 
     <div class="toplist__item" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">30</div>
+            <div class="toplist__rank">28</div>
             <div class="toplist__logo">
                 <img src="img/logos/1bet.svg" alt="1BET" class="toplist__logo-img">
             </div>
