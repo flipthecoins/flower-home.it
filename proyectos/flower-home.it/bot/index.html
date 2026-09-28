@@ -44,7 +44,7 @@
     </script>
     <!-- TOPLIST_STYLE_START -->
 <style id="toplist-custom-colors">
-:root {
+.toplist, .toplist-slot, .sticky-bonus {
   --c-navy: #1d3557;
   --c-navy-dark: #1d3557;
   --c-navy-light: #1d3557;
@@ -69,8 +69,29 @@
   transform: translateY(-1px);
 }
 .btn--play:hover::after { transform: translateX(3px); }
-.toplist__logo { padding: 8px !important; }
-.toplist__logo-img { max-width: calc(100% - 0px) !important; max-height: 90px !important; width: auto !important; height: auto !important; object-fit: contain !important; display: block !important; }
+
+.toplist__main { grid-template-columns: 44px minmax(150px,180px) minmax(130px,1fr) minmax(140px,210px) minmax(120px,170px); }
+.toplist__logo { box-sizing:border-box; min-width:0; min-height:112px; padding:8px !important; overflow:hidden; }
+.toplist__logo-img { display:block !important; width:100% !important; height:104px !important; max-width:100% !important; max-height:none !important; object-fit:contain !important; }
+.toplist__info { min-width:0; }
+.toplist__name { overflow-wrap:anywhere; }
+.toplist__license { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+@media(max-width:900px) and (min-width:681px) {
+  .toplist__main { grid-template-columns:36px 138px minmax(100px,1fr) minmax(125px,160px) minmax(105px,140px); }
+}
+@media(max-width:680px) {
+  .toplist__main { grid-template-columns:32px 120px minmax(0,1fr) !important; }
+  .toplist__logo { min-height:96px; padding:6px !important; }
+  .toplist__logo-img { height:84px !important; }
+  .toplist__info { padding:10px !important; }
+  .toplist__footer { grid-template-columns:1fr !important; }
+  .toplist__footer-label, .toplist__footer-val { white-space:normal !important; overflow-wrap:anywhere; }
+}
+@media(max-width:380px) {
+  .toplist__main { grid-template-columns:28px 104px minmax(0,1fr) !important; }
+  .toplist__logo-img { height:76px !important; }
+}
+
 @media (max-width: 600px) {
   .toplist__cta { flex-direction: row !important; }
   .btn--review { order: -1; }
@@ -166,7 +187,7 @@
         <div class="toplist__main">
             <div class="toplist__rank toplist__rank--1">1</div>
             <div class="toplist__logo">
-                <img src="img/logos/snai_v2.png" alt="Snai" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/snai_v2.png?v=2026-08-23T16%3A25%3A15.793Z" alt="Snai" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -181,8 +202,8 @@
                 <span class="toplist__bonus-value">€15 senza deposito + 50% fino a €500 + 30% cashback fino a €950</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/snai" class="btn btn--play" data-cs="snai:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/snai" class="btn btn--review" data-cs="snai:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.snai.it/" class="btn btn--play" data-cs="snai:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.snai.it/" class="btn btn--review" data-cs="snai:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -205,7 +226,7 @@
         <div class="toplist__main">
             <div class="toplist__rank toplist__rank--2">2</div>
             <div class="toplist__logo">
-                <img src="img/logos/goldbet.png" alt="Goldbet" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/goldbet.png?v=2026-08-23T14%3A30%3A37.562Z" alt="Goldbet" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -220,8 +241,8 @@
                 <span class="toplist__bonus-value">100% sul primo deposito fino a €2.000</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/goldbet" class="btn btn--play" data-cs="goldbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/goldbet" class="btn btn--review" data-cs="goldbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.goldbet.it/" class="btn btn--play" data-cs="goldbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.goldbet.it/" class="btn btn--review" data-cs="goldbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -244,7 +265,7 @@
         <div class="toplist__main">
             <div class="toplist__rank toplist__rank--3">3</div>
             <div class="toplist__logo">
-                <img src="img/logos/planetwin365.png" alt="Planetwin365" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/planetwin365.png?v=2026-08-23T14%3A30%3A56.864Z" alt="Planetwin365" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -259,8 +280,8 @@
                 <span class="toplist__bonus-value">100% fino a €50 immediato + 100% fino a €2.000 sport</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/planetwin365" class="btn btn--play" data-cs="planetwin365:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/planetwin365" class="btn btn--review" data-cs="planetwin365:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.planetwin365.it/" class="btn btn--play" data-cs="planetwin365:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.planetwin365.it/" class="btn btn--review" data-cs="planetwin365:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -283,7 +304,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">4</div>
             <div class="toplist__logo">
-                <img src="img/logos/giocodigitale.png" alt="Gioco Digitale" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/giocodigitale.png?v=2026-08-23T14%3A31%3A15.325Z" alt="Gioco Digitale" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -298,8 +319,8 @@
                 <span class="toplist__bonus-value">100% primo deposito fino a €200 + €5 Bingo bonus</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/giocodigitale" class="btn btn--play" data-cs="giocodigitale:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/giocodigitale" class="btn btn--review" data-cs="giocodigitale:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.giocodigitale.it/" class="btn btn--play" data-cs="giocodigitale:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.giocodigitale.it/" class="btn btn--review" data-cs="giocodigitale:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -322,7 +343,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">5</div>
             <div class="toplist__logo">
-                <img src="img/logos/bet365.svg" alt="bet365" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/bet365.svg?v=2026-08-23T14%3A31%3A34.613Z" alt="bet365" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -337,8 +358,8 @@
                 <span class="toplist__bonus-value">100% fino a €500 sport (dep. min €5) + fino a 100 giri gratis casinò</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/bet365" class="btn btn--play" data-cs="bet365:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/bet365" class="btn btn--review" data-cs="bet365:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.bet365.it/" class="btn btn--play" data-cs="bet365:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.bet365.it/" class="btn btn--review" data-cs="bet365:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -361,7 +382,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">6</div>
             <div class="toplist__logo">
-                <img src="img/logos/betsson.png" alt="Betsson" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/betsson.png?v=2026-08-23T14%3A34%3A03.248Z" alt="Betsson" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -376,8 +397,8 @@
                 <span class="toplist__bonus-value">100% fino a €1.000 sport + fino a €1.000 casinò</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/betsson" class="btn btn--play" data-cs="betsson:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/betsson" class="btn btn--review" data-cs="betsson:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.betsson.it/" class="btn btn--play" data-cs="betsson:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.betsson.it/" class="btn btn--review" data-cs="betsson:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -400,7 +421,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">7</div>
             <div class="toplist__logo">
-                <img src="img/logos/888casino.png" alt="888casino" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/888casino.png?v=2026-08-23T14%3A34%3A55.196Z" alt="888casino" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -415,8 +436,8 @@
                 <span class="toplist__bonus-value">€20 (€50 con SPID) senza deposito + 50 giri gratis + 100% fino a €1.000</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/888casino" class="btn btn--play" data-cs="888casino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/888casino" class="btn btn--review" data-cs="888casino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.888casino.it/" class="btn btn--play" data-cs="888casino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.888casino.it/" class="btn btn--review" data-cs="888casino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -439,7 +460,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">8</div>
             <div class="toplist__logo">
-                <img src="img/logos/starcasino.jpg" alt="StarCasinò" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/starcasino.jpg?v=2026-08-23T14%3A35%3A29.000Z" alt="StarCasinò" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -454,8 +475,8 @@
                 <span class="toplist__bonus-value">Fino a €2.000 cashback sulle perdite nette + fino a 150 giri gratis</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/starcasino" class="btn btn--play" data-cs="starcasino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/starcasino" class="btn btn--review" data-cs="starcasino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.starcasino.it/" class="btn btn--play" data-cs="starcasino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.starcasino.it/" class="btn btn--review" data-cs="starcasino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -478,7 +499,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">9</div>
             <div class="toplist__logo">
-                <img src="img/logos/leovegas.jpg" alt="LeoVegas" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/leovegas.jpg?v=2026-08-23T14%3A35%3A56.843Z" alt="LeoVegas" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -493,8 +514,8 @@
                 <span class="toplist__bonus-value">Fino a €1.500 + 250 giri gratis su 3 depositi</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/leovegas" class="btn btn--play" data-cs="leovegas:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/leovegas" class="btn btn--review" data-cs="leovegas:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.leovegas.it/" class="btn btn--play" data-cs="leovegas:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.leovegas.it/" class="btn btn--review" data-cs="leovegas:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -517,7 +538,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">10</div>
             <div class="toplist__logo">
-                <img src="img/logos/eurobet.png" alt="Eurobet" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/eurobet.png?v=2026-08-23T14%3A36%3A42.019Z" alt="Eurobet" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -532,8 +553,8 @@
                 <span class="toplist__bonus-value">€5 senza deposito + fino a €1.000 Fun Bonus + 100% fino a €3.000 sport</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/eurobet" class="btn btn--play" data-cs="eurobet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/eurobet" class="btn btn--review" data-cs="eurobet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.eurobet.it/" class="btn btn--play" data-cs="eurobet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.eurobet.it/" class="btn btn--review" data-cs="eurobet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -556,7 +577,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">11</div>
             <div class="toplist__logo">
-                <img src="img/logos/williamhill.png" alt="William Hill" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/williamhill.png?v=2026-08-23T14%3A37%3A40.613Z" alt="William Hill" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -571,8 +592,8 @@
                 <span class="toplist__bonus-value">Fino a €210 (€10 senza deposito con SPID + 100% fino a €50 + fino a €50 multiple)</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/williamhill" class="btn btn--play" data-cs="williamhill:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/williamhill" class="btn btn--review" data-cs="williamhill:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.williamhill.it/" class="btn btn--play" data-cs="williamhill:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.williamhill.it/" class="btn btn--review" data-cs="williamhill:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -595,7 +616,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">12</div>
             <div class="toplist__logo">
-                <img src="img/logos/betfair_v2.png" alt="Betfair" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/betfair_v2.png?v=2026-08-23T16%3A25%3A43.235Z" alt="Betfair" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -610,8 +631,8 @@
                 <span class="toplist__bonus-value">100% cashback sulle perdite nette fino a €50 (Exchange)</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/betfair" class="btn btn--play" data-cs="betfair:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/betfair" class="btn btn--review" data-cs="betfair:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.betfair.it/" class="btn btn--play" data-cs="betfair:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.betfair.it/" class="btn btn--review" data-cs="betfair:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -634,7 +655,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">13</div>
             <div class="toplist__logo">
-                <img src="img/logos/daznbet.png" alt="DAZN Bet" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/daznbet.png?v=2026-08-23T14%3A39%3A04.840Z" alt="DAZN Bet" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -649,8 +670,8 @@
                 <span class="toplist__bonus-value">Fino a €600 su 3 depositi + fino a €2.000 cashback</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/daznbet" class="btn btn--play" data-cs="daznbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/daznbet" class="btn btn--review" data-cs="daznbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.daznbet.it/" class="btn btn--play" data-cs="daznbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.daznbet.it/" class="btn btn--review" data-cs="daznbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -673,7 +694,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">14</div>
             <div class="toplist__logo">
-                <img src="img/logos/marathonbet.png" alt="Marathonbet" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/marathonbet.png?v=2026-08-23T14%3A39%3A48.203Z" alt="Marathonbet" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -688,8 +709,8 @@
                 <span class="toplist__bonus-value">100% primo deposito fino a €100 + fino a €250 cashback</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/marathonbet" class="btn btn--play" data-cs="marathonbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/marathonbet" class="btn btn--review" data-cs="marathonbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.marathonbet.it/" class="btn btn--play" data-cs="marathonbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.marathonbet.it/" class="btn btn--review" data-cs="marathonbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -712,7 +733,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">15</div>
             <div class="toplist__logo">
-                <img src="img/logos/admiralbet.png" alt="AdmiralBet" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/admiralbet.png?v=2026-08-23T14%3A40%3A57.561Z" alt="AdmiralBet" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -727,8 +748,8 @@
                 <span class="toplist__bonus-value">50% primo deposito fino a €5.000</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/admiralbet" class="btn btn--play" data-cs="admiralbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/admiralbet" class="btn btn--review" data-cs="admiralbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.admiralbet.it/" class="btn btn--play" data-cs="admiralbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.admiralbet.it/" class="btn btn--review" data-cs="admiralbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -751,7 +772,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">16</div>
             <div class="toplist__logo">
-                <img src="img/logos/sportium.jpg" alt="Sportium" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/sportium.jpg?v=2026-08-23T14%3A42%3A22.155Z" alt="Sportium" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -766,8 +787,8 @@
                 <span class="toplist__bonus-value">50% primo deposito fino a €100</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/sportium" class="btn btn--play" data-cs="sportium:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/sportium" class="btn btn--review" data-cs="sportium:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://www.sportium.it/" class="btn btn--play" data-cs="sportium:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://www.sportium.it/" class="btn btn--review" data-cs="sportium:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -790,7 +811,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">17</div>
             <div class="toplist__logo">
-                <img src="img/logos/needforspin.png" alt="Need For Spin" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/needforspin.png?v=2026-08-23T15%3A18%3A55.629Z" alt="Need For Spin" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -805,8 +826,8 @@
                 <span class="toplist__bonus-value">100% fino a €300 + 100 giri gratis (pacchetto totale fino a €1.500 + 250 giri gratis)</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/needforspin" class="btn btn--play" data-cs="needforspin:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/needforspin" class="btn btn--review" data-cs="needforspin:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://needforspin.com/" class="btn btn--play" data-cs="needforspin:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://needforspin.com/" class="btn btn--review" data-cs="needforspin:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -829,7 +850,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">18</div>
             <div class="toplist__logo">
-                <img src="img/logos/rollingslots.png" alt="Rolling Slots" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/rollingslots.png?v=2026-08-23T15%3A19%3A15.812Z" alt="Rolling Slots" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -844,8 +865,8 @@
                 <span class="toplist__bonus-value">100% fino a €500 + 50 giri gratis</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/rollingslots" class="btn btn--play" data-cs="rollingslots:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/rollingslots" class="btn btn--review" data-cs="rollingslots:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://rollingslots.it/" class="btn btn--play" data-cs="rollingslots:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://rollingslots.it/" class="btn btn--review" data-cs="rollingslots:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -868,7 +889,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">19</div>
             <div class="toplist__logo">
-                <img src="img/logos/freshbet.webp" alt="Freshbet" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/freshbet.webp?v=2026-08-23T15%3A19%3A37.623Z" alt="Freshbet" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -883,8 +904,8 @@
                 <span class="toplist__bonus-value">155% fino a €500 sul primo deposito (pacchetto fino a €1.500 su 3 depositi)</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/freshbet" class="btn btn--play" data-cs="freshbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/freshbet" class="btn btn--review" data-cs="freshbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://freshbet.ltd/" class="btn btn--play" data-cs="freshbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://freshbet.ltd/" class="btn btn--review" data-cs="freshbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -907,7 +928,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">20</div>
             <div class="toplist__logo">
-                <img src="img/logos/minocasino.png" alt="Mino Casino" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/minocasino.png?v=2026-08-23T15%3A19%3A56.953Z" alt="Mino Casino" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -922,8 +943,8 @@
                 <span class="toplist__bonus-value">Fino a €500 + 100 giri gratis, wagering 45x, max €5 a giro</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/minocasino" class="btn btn--play" data-cs="minocasino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/minocasino" class="btn btn--review" data-cs="minocasino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://minocasinos.it/" class="btn btn--play" data-cs="minocasino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://minocasinos.it/" class="btn btn--review" data-cs="minocasino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -946,7 +967,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">21</div>
             <div class="toplist__logo">
-                <img src="img/logos/spinjo.png" alt="Spinjo" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/spinjo.png?v=2026-08-23T15%3A20%3A17.773Z" alt="Spinjo" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -961,8 +982,8 @@
                 <span class="toplist__bonus-value">Fino a €5.000 + 300 giri gratis sui primi 4 depositi</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/spinjo" class="btn btn--play" data-cs="spinjo:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/spinjo" class="btn btn--review" data-cs="spinjo:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://spinjo.it/" class="btn btn--play" data-cs="spinjo:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://spinjo.it/" class="btn btn--review" data-cs="spinjo:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -985,7 +1006,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">22</div>
             <div class="toplist__logo">
-                <img src="img/logos/dollycasino.png" alt="Dolly Casino" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/dollycasino.png?v=2026-08-23T15%3A20%3A38.607Z" alt="Dolly Casino" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -1000,8 +1021,8 @@
                 <span class="toplist__bonus-value">100-225% fino a €1.000 su 3 depositi + 100 giri gratis</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/dollycasino" class="btn btn--play" data-cs="dollycasino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/dollycasino" class="btn btn--review" data-cs="dollycasino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://dollycas.it/" class="btn btn--play" data-cs="dollycasino:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://dollycas.it/" class="btn btn--review" data-cs="dollycasino:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -1024,7 +1045,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">23</div>
             <div class="toplist__logo">
-                <img src="img/logos/mystake.jpg" alt="MyStake Casino" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/mystake.jpg?v=2026-08-23T15%3A20%3A59.352Z" alt="MyStake Casino" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -1039,8 +1060,8 @@
                 <span class="toplist__bonus-value">Pacchetto di benvenuto fino a €1.500</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/mystake" class="btn btn--play" data-cs="mystake:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/mystake" class="btn btn--review" data-cs="mystake:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://en-mystake.com/" class="btn btn--play" data-cs="mystake:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://en-mystake.com/" class="btn btn--review" data-cs="mystake:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -1063,7 +1084,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">24</div>
             <div class="toplist__logo">
-                <img src="img/logos/goldenbet.png" alt="GoldenBet" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/goldenbet.png?v=2026-08-23T15%3A21%3A20.927Z" alt="GoldenBet" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -1078,8 +1099,8 @@
                 <span class="toplist__bonus-value">100% fino a €500 + giri gratis (casinò)</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/goldenbet" class="btn btn--play" data-cs="goldenbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/goldenbet" class="btn btn--review" data-cs="goldenbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://goldenbetit.com/" class="btn btn--play" data-cs="goldenbet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://goldenbetit.com/" class="btn btn--review" data-cs="goldenbet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -1102,7 +1123,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">25</div>
             <div class="toplist__logo">
-                <img src="img/logos/godz.png" alt="Godz" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/godz.png?v=2026-08-23T15%3A21%3A39.974Z" alt="Godz" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -1117,8 +1138,8 @@
                 <span class="toplist__bonus-value">100% fino a €2.000 + 300 giri gratis</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/godz" class="btn btn--play" data-cs="godz:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/godz" class="btn btn--review" data-cs="godz:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://godz-1casinos.com/" class="btn btn--play" data-cs="godz:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://godz-1casinos.com/" class="btn btn--review" data-cs="godz:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -1141,7 +1162,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">26</div>
             <div class="toplist__logo">
-                <img src="img/logos/vipluck.png" alt="Vipluck" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/vipluck.png?v=2026-08-23T15%3A21%3A59.402Z" alt="Vipluck" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -1156,8 +1177,8 @@
                 <span class="toplist__bonus-value">100% fino a €2.000 + 300 giri gratis sui primi 3 depositi</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/vipluck" class="btn btn--play" data-cs="vipluck:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/vipluck" class="btn btn--review" data-cs="vipluck:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://vipluck.it/" class="btn btn--play" data-cs="vipluck:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://vipluck.it/" class="btn btn--review" data-cs="vipluck:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -1180,7 +1201,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">27</div>
             <div class="toplist__logo">
-                <img src="img/logos/scored_v2.png" alt="Scored" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/scored_v2.png?v=2026-08-23T16%3A26%3A08.681Z" alt="Scored" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -1195,8 +1216,8 @@
                 <span class="toplist__bonus-value">Fino a €1.000 + 100 giri gratis</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/scored" class="btn btn--play" data-cs="scored:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/scored" class="btn btn--review" data-cs="scored:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://scored.it.com/" class="btn btn--play" data-cs="scored:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://scored.it.com/" class="btn btn--review" data-cs="scored:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -1219,7 +1240,7 @@
         <div class="toplist__main">
             <div class="toplist__rank">28</div>
             <div class="toplist__logo">
-                <img src="img/logos/1bet.svg" alt="1BET" class="toplist__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/1bet.svg?v=2026-08-23T15%3A22%3A41.327Z" alt="1BET" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
                 <div class="toplist__header">
@@ -1234,8 +1255,8 @@
                 <span class="toplist__bonus-value">100% fino a €500 + 200 giri gratis</span>
             </div>
             <div class="toplist__cta">
-                <a href="https://link.flower-home.it/1bet" class="btn btn--play" data-cs="1bet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://link.flower-home.it/1bet" class="btn btn--review" data-cs="1bet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+                <a href="https://1betcasino.it/" class="btn btn--play" data-cs="1bet:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://1betcasino.it/" class="btn btn--review" data-cs="1bet:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
             </div>
         </div>
         <div class="toplist__footer">
@@ -1253,7 +1274,7 @@
             </div>
         </div>
     </div>
-<script>(function(){if(navigator.webdriver||!navigator.languages||!navigator.languages.length)return;var o="https://admin.reframe-web.workers.dev",c="italy";document.addEventListener('click',function(e){var a=e.target.closest('[data-cs]');if(!a)return;var p=a.dataset.cs.split(':');try{navigator.sendBeacon(o+'/api/click/'+c+'/'+p[0]+'/'+p[1]);}catch(x){}});})()</script>
+<script>(function(){if(navigator.webdriver||!navigator.languages||!navigator.languages.length)return;var o="https://reframe-toplists.reframe-web.workers.dev",c="italy";document.addEventListener('click',function(e){var a=e.target.closest('[data-cs]');if(!a)return;var p=a.dataset.cs.split(':');try{navigator.sendBeacon(o+'/api/click/'+c+'/'+p[0]+'/'+p[1]);}catch(x){}});})()</script>
 <!-- TOPLIST_END -->
 </div>
 
@@ -1809,7 +1830,7 @@
         <div class="sticky-bonus__inner">
             <div class="sticky-bonus__rank" aria-hidden="true">1</div>
             <div class="sticky-bonus__logo">
-                <img src="img/logos/snai_v2.png" alt="Snai" class="sticky-bonus__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/snai_v2.png?v=2026-08-23T16%3A25%3A15.793Z" alt="Snai" class="sticky-bonus__logo-img">
             </div>
             <div class="sticky-bonus__info">
                 <span class="sticky-bonus__name">Snai</span>
@@ -1819,7 +1840,7 @@
                 <span class="sticky-bonus__score">4.5</span>
                 <span class="sticky-stars" aria-hidden="true">★★★★★</span>
             </div>
-            <a href="https://link.flower-home.it/snai" class="btn btn--play sticky-bonus__cta" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+            <a href="https://www.snai.it/" class="btn btn--play sticky-bonus__cta" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
             <button class="sticky-bonus__close" id="stickyClose" aria-label="Chiudi">✕</button>
         </div>
     </div>
