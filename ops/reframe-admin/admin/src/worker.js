@@ -1,7 +1,8 @@
 import { LOGO_CSS } from './logo-styles.js';
+import { renderCasinoDetails, DETAILS_CSS } from './casino-details.js';
 import { publicCasinos, PUBLIC_ORIGIN } from './public-media.js';
 import { html } from './html.js';
-import { COUNTRIES, LANGS, GITHUB_ORG } from './config.js';
+import { COUNTRIES, LANGS, NL_BADGE_LABELS, GITHUB_ORG } from './config.js';
 
 const SESSION_TTL = 60 * 60 * 24 * 7; // 7 days
 const MEDIA_CDN = 'img/logos';
@@ -411,10 +412,12 @@ export function generateToplistHTML(casinos, config, lang, settings, countryId, 
     cta_review: (settings && settings.cta_review) || base.cta_review,
   });
   const linkBase = config.link_base || '';
+  const compact = countryId === 'netherlands' || config.kv_key === 'bot:casinos:netherlands';
   const items = casinos.map((c, i) => {
     const rank = i + 1;
     const isTop3 = rank <= 3;
-    const itemClass = isTop3 ? `toplist__item toplist__item--top toplist__item--${rank}` : 'toplist__item';
+    const hasBonus = !!String(c.bonus || '').trim();
+    const itemClass = (isTop3 ? `toplist__item toplist__item--top toplist__item--${rank}` : 'toplist__item') + (compact ? ' toplist__item--compact' + (!hasBonus ? ' toplist__item--no-bonus' : '') : '');
     const rankClass = isTop3 ? `toplist__rank toplist__rank--${rank}` : 'toplist__rank';
     const link = safeLink(c.link || (!settings?.redirects_path && c.destination) || `${linkBase}/${c.slug}`);
     const ctaPlay = escHtml(c.cta_play || L.cta_play);
@@ -430,21 +433,21 @@ export function generateToplistHTML(casinos, config, lang, settings, countryId, 
             <div class="toplist__info">
                 <div class="toplist__header">
                     <span class="toplist__name">${escHtml(c.name)}</span>
-                    ${c.badge ? `<span class="badge ${badgeClass}">${escHtml(c.badge)}</span>` : ''}
+                    ${c.badge ? `<span class="badge ${badgeClass}">${escHtml(lang === 'nl' ? NL_BADGE_LABELS[c.badge] || c.badge : c.badge)}</span>` : ''}
                 </div>
                 ${c.withdrawal_time ? `<div class="toplist__speed"><span class="toplist__speed-lbl">Opname</span><span class="toplist__speed-val"><i data-lucide="zap" class="icon"></i> ${escHtml(c.withdrawal_time)}</span></div>` : ''}
-                <div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> ${escHtml(c.license)}</div>
+                ${!compact && String(c.license || '').trim() ? `<div class="toplist__license"><i data-lucide="shield-check" class="icon"></i> ${escHtml(c.license)}</div>` : ''}
             </div>
-            <div class="toplist__bonus">
+            ${!compact || hasBonus ? `<div class="toplist__bonus">
                 <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> ${L.bonus_label}</span>
                 <span class="toplist__bonus-value">${escHtml(c.bonus)}</span>
-            </div>
+            </div>` : ''}
             <div class="toplist__cta">
                 <a href="${escHtml(link)}" class="btn btn--play" data-cs="${escHtml(c.slug)}:play" rel="noopener noreferrer nofollow" target="_blank">${ctaPlay}</a>
                 <a href="${escHtml(link)}" class="btn btn--review" data-cs="${escHtml(c.slug)}:review" rel="noopener noreferrer nofollow" target="_blank">${ctaReview}</a>
             </div>
         </div>
-        <div class="toplist__footer">
+        ${compact ? renderCasinoDetails(c, lang, L) : `<div class="toplist__footer">
             <div class="toplist__footer-col">
                 <span class="toplist__footer-label">${L.methods_label}</span>
                 <span class="toplist__footer-val">${escHtml(c.methods)}</span>
@@ -457,7 +460,7 @@ export function generateToplistHTML(casinos, config, lang, settings, countryId, 
                 <span class="toplist__footer-label">${L.verified_label}</span>
                 <span class="toplist__footer-val">${L.disclaimer}</span>
             </div>
-        </div>
+        </div>`}
     </div>`;
   }).join('\n');
 
@@ -529,6 +532,7 @@ export function generateColorsCSS(colors) {
 }
 .btn--play:hover::after { transform: translateX(3px); }
 ${LOGO_CSS}
+${DETAILS_CSS}
 @media (max-width: 600px) {
   .toplist__cta { flex-direction: row !important; }
   .btn--review { order: -1; }

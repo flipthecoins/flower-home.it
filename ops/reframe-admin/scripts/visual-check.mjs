@@ -50,6 +50,22 @@ try {
         await first.scrollIntoViewIfNeeded();
         await first.screenshot({ path: `artifacts/${country}-${width}-card.png` });
         if(width===320) await page.screenshot({path:`artifacts/${country}-320-page.png`});
+        if(country === 'netherlands') {
+          const details = first.locator('details');
+          await details.locator('summary').focus();
+          await page.keyboard.press('Enter');
+          if (!(await details.getAttribute('open') !== null)) throw new Error('Details cannot be opened by keyboard');
+          if (!(await details.textContent()).includes('EUR')) throw new Error('Payment data missing');
+          await first.screenshot({path:`artifacts/nl-currencies-open-${width}.png`});
+          await page.keyboard.press('Enter');
+          const licensed = page.locator('.toplist__item').nth(3);
+          await licensed.locator('summary').click();
+          if (!(await licensed.textContent()).includes('Ministerie van Financiën')) throw new Error('Full licence data missing');
+          await licensed.screenshot({path:`artifacts/nl-licence-open-${width}.png`});
+          const emptyBonus = page.locator('.toplist__item').nth(4);
+          if(await emptyBonus.locator('.toplist__bonus, .toplist__deposit').count()) throw new Error('Empty data still displayed');
+          await emptyBonus.screenshot({path:`artifacts/nl-no-bonus-${width}.png`});
+        }
       }
       results.push({ country, width, ...await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth > innerWidth,
@@ -90,6 +106,13 @@ try {
     const preview = page.frames().find(f=>f.parentFrame());
     if(!preview || !(await preview.locator('.toplist__logo-img').count())) throw new Error('Preview missing');
     await page.screenshot({path:`artifacts/preview-${width}.png`});
+    await page.evaluate(async () => { await loadCasinos('netherlands'); switchTab('colprv'); });
+    await page.waitForTimeout(400);
+    const nlPreview = page.frames().find(f=>f.parentFrame());
+    if((await nlPreview.locator('.toplist__item--compact').count()) !== state.netherlands.casinos.length) throw new Error('NL preview differs from public cards');
+    if(!(await nlPreview.locator('.btn--play').first().textContent()).includes('Speel Nu')) throw new Error('NL preview language mismatch');
+    await page.evaluate(() => switchTab('settings'));
+    if(!(await page.locator('option[value="nl"]').count())) throw new Error('Dutch unavailable in language selector');
   }
   await writeFile('artifacts/visual-results.json', JSON.stringify({ results, errors }, null, 2));
   console.log(JSON.stringify({ results, errors }, null, 2));

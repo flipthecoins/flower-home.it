@@ -56,6 +56,29 @@ test('markup remains escaped and invalid link protocols do not become active lin
   assert.match(data.html, /%22.png/);
 });
 
+test('NL cards keep full facts in accessible details and omit empty fields', async () => {
+  const env = environment();
+  env.data.set('bot:settings:netherlands', { language: 'nl' });
+  env.data.set('bot:casinos:netherlands', [
+    { name: 'Currency casino', slug: 'currency', methods: 'EUR, USD, BTC', min_deposit: ' ', license: ' ', bonus: '' },
+    { name: 'Long licence', slug: 'licence', license: 'KSA — Full operator details <unescaped> with licence 123/456', methods: 'iDEAL, Visa, Mastercard', min_deposit: '€10', bonus: '100% tot €100' },
+  ]);
+  const data = await snapshot('netherlands', env, 'https://public.example');
+  const [first, second] = data.html.split('role="listitem"').slice(1);
+  assert.doesNotMatch(first, /toplist__license|toplist__bonus|toplist__deposit|Min\. storting/);
+  assert.match(first, /<details class="toplist__details"><summary>Casino-informatie/);
+  assert.match(first, /Valuta's/);
+  assert.match(first, /<li>EUR<\/li><li>USD<\/li><li>BTC<\/li>/);
+  assert.match(first, /Speel Nu/);
+  assert.match(first, /Lees review/);
+  assert.doesNotMatch(second, /toplist__license/);
+  assert.match(second, /KSA — Full operator details &lt;unescaped&gt; with licence 123\/456/);
+  assert.match(second, /<strong>€10<\/strong>/);
+  assert.match(second, /<dt>Betaalmethoden<\/dt>/);
+  assert.match(second, /100% tot €100/);
+  assert.doesNotMatch(data.html, /Jetzt spielen|Zahlungsmethoden|Mindesteinzahlung/);
+});
+
 const built = await build({ stdin: {
   contents: `import {injectLiveToplist} from './shared/live-toplist.js'; export default {async fetch(request) {const b=await request.json(); return injectLiveToplist(new Response(b.source,{headers:{'Content-Type': b.type || 'text/html','ETag':'old'}}), 'italy', async()=> b.fail ? new Response('',{status:503}) : Response.json(b.data));}};`,
   resolveDir: process.cwd(), sourcefile: 'test-worker.js',

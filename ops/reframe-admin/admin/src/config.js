@@ -1,5 +1,11 @@
 export const GITHUB_ORG = 'flipthecoins';
 
+export const NL_BADGE_LABELS = {
+  'Top Pick': 'Beste keuze', 'Best Bonus': 'Beste bonus', "Editor's Choice": 'Keuze van de redactie',
+  'Most Popular': 'Populairst', 'New Casino': 'Nieuw casino', 'Exclusive': 'Exclusief',
+  'Recommended': 'Aanbevolen', 'VIP': 'VIP', '🔥 Hot': '🔥 Populair',
+};
+
 export const LANGS = {
   it: {
     name: 'Italiano',

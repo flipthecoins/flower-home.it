@@ -1,3 +1,5 @@
+import { renderCasinoDetails, DETAILS_CSS } from './casino-details.js';
+import { LANGS, NL_BADGE_LABELS } from './config.js';
 import { LOGO_CSS } from './logo-styles.js';
 export function html() {
   return `<!DOCTYPE html>
@@ -697,12 +699,8 @@ var COLOR_DEFS = [
   { key: 'accent', label: 'Accent',     desc: 'Badges & secondary elements' },
   { key: 'text',   label: 'Text',       desc: 'Casino name & main text color' },
 ];
-var LANGS = {
-  it: { name: 'Italiano', bonus_label: 'Bonus benvenuto', methods_label: 'Metodo di deposito', deposit_label: 'Deposito minimo', verified_label: 'Casinò verificato', disclaimer: '18+ | Si applicano i T&C', cta_play: 'Gioca ora', cta_review: 'Recensione' },
-  de: { name: 'Deutsch',  bonus_label: 'Willkommensbonus', methods_label: 'Zahlungsmethoden', deposit_label: 'Mindesteinzahlung', verified_label: 'Verifiziertes Casino', disclaimer: '18+ | Es gelten die AGB', cta_play: 'Jetzt spielen', cta_review: 'Bewertung' },
-  en: { name: 'English',  bonus_label: 'Welcome bonus', methods_label: 'Payment methods', deposit_label: 'Min. deposit', verified_label: 'Verified casino', disclaimer: '18+ | T&C apply', cta_play: 'Play now', cta_review: 'Review' },
-  es: { name: 'Español',  bonus_label: 'Bono de bienvenida', methods_label: 'Métodos de pago', deposit_label: 'Depósito mínimo', verified_label: 'Casino verificado', disclaimer: '18+ | Se aplican los T&C', cta_play: 'Jugar ahora', cta_review: 'Reseña' },
-};
+var LANGS = ${JSON.stringify(LANGS)};
+var NL_BADGE_LABELS = ${JSON.stringify(NL_BADGE_LABELS)};
 var currentSettings = {};
 var previewMode = 'desktop';
 
@@ -1375,10 +1373,13 @@ function renderPreviewTab() {
   if (!frame) return;
   var linkBase = (currentCountry && currentCountry.link_base) ? currentCountry.link_base : '#';
   var lang = (currentSettings && currentSettings.language) ? currentSettings.language : 'it';
-  frame.srcdoc = generatePreviewHTML(casinos, currentColors, linkBase, lang).replace('</head>', '<style>' + ${JSON.stringify(LOGO_CSS)} + '</style></head>');
+  frame.srcdoc = generatePreviewHTML(casinos, currentColors, linkBase, lang).replace('</head>', '<style>' + ${JSON.stringify(LOGO_CSS + DETAILS_CSS)} + '</style></head>');
 }
 
+var renderPublicDetails = ${renderCasinoDetails.toString()};
+
 function generatePreviewHTML(casinoList, colors, linkBase, lang) {
+  var compact = currentCountry && currentCountry.id === 'netherlands';
   var c = Object.assign({}, DEFAULT_COLORS, colors || {});
   var L = Object.assign({}, LANGS[lang] || LANGS.it, {
     cta_play:   (currentSettings.cta_play   || '') || (LANGS[lang] || LANGS.it).cta_play,
@@ -1391,10 +1392,11 @@ function generatePreviewHTML(casinoList, colors, linkBase, lang) {
   var rows = casinoList.map(function(casino, i) {
     var rank = i + 1;
     var isTop = rank <= 3;
+    var hasBonus = !!String(casino.bonus || '').trim();
     var link = previewLink(casino, linkBase);
     var logoSrc = esc(mediaUrl(casino.logo));
     var bc = (casino.badge && BC[casino.badge]) ? BC[casino.badge] : 'badge--gold';
-    return '<div class="toplist__item' + (isTop ? ' toplist__item--top toplist__item--' + rank : '') + '" role="listitem">' +
+    return '<div class="toplist__item' + (isTop ? ' toplist__item--top toplist__item--' + rank : '') + (compact ? ' toplist__item--compact' + (!hasBonus ? ' toplist__item--no-bonus' : '') : '') + '" role="listitem">' +
       '<div class="toplist__main">' +
         '<div class="toplist__rank' + (isTop ? ' toplist__rank--' + rank : '') + '">' + rank + '</div>' +
         '<div class="toplist__logo">' +
@@ -1403,25 +1405,25 @@ function generatePreviewHTML(casinoList, colors, linkBase, lang) {
         '<div class="toplist__info">' +
           '<div class="toplist__header">' +
             '<span class="toplist__name">' + esc(casino.name) + '</span>' +
-            (casino.badge ? '<span class="badge ' + bc + '">' + esc(casino.badge) + '</span>' : '') +
+            (casino.badge ? '<span class="badge ' + bc + '">' + esc(lang === 'nl' ? NL_BADGE_LABELS[casino.badge] || casino.badge : casino.badge) + '</span>' : '') +
           '</div>' +
-          '<div class="toplist__rating">★ ' + esc(casino.rating || '') + '</div>' +
-          '<div class="toplist__license">🛡 ' + esc(casino.license || '') + '</div>' +
+          (!compact && casino.rating ? '<div class="toplist__rating">★ ' + esc(casino.rating) + '</div>' : '') +
+          (!compact && String(casino.license || '').trim() ? '<div class="toplist__license">🛡 ' + esc(casino.license) + '</div>' : '') +
         '</div>' +
-        '<div class="toplist__bonus">' +
+        (!compact || hasBonus ? '<div class="toplist__bonus">' +
           '<span class="toplist__bonus-label">🎁 ' + L.bonus_label + '</span>' +
           '<span class="toplist__bonus-value">' + esc(casino.bonus || '') + '</span>' +
-        '</div>' +
+        '</div>' : '') +
         '<div class="toplist__cta">' +
           '<a href="' + link + '" class="btn--play" target="_blank" rel="noopener nofollow">' + esc(casino.cta_play || L.cta_play) + '</a>' +
           '<a href="' + link + '" class="btn--review" target="_blank" rel="noopener nofollow">' + esc(casino.cta_review || L.cta_review) + '</a>' +
         '</div>' +
       '</div>' +
-      '<div class="toplist__footer">' +
+      (compact ? renderPublicDetails(casino, lang, L) : '<div class="toplist__footer">' +
         '<div class="toplist__footer-col"><span class="toplist__footer-label">' + L.methods_label + '</span><span class="toplist__footer-val">' + esc(casino.methods || '') + '</span></div>' +
         '<div class="toplist__footer-col"><span class="toplist__footer-label">' + L.deposit_label + '</span><span class="toplist__footer-val">' + esc(casino.min_deposit || '') + '</span></div>' +
         '<div class="toplist__footer-col"><span class="toplist__footer-label">' + L.verified_label + '</span><span class="toplist__footer-val">' + L.disclaimer + '</span></div>' +
-      '</div>' +
+      '</div>') +
     '</div>';
   }).join('');
 

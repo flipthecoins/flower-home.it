@@ -30,3 +30,8 @@ Run `npm ci && npm test`. Tests cover saved edits, versioned images, link escapi
 The `Reframe live lists` workflow checks branch pushes and deploys both Workers on **main**, delivery first. It uses the existing repository Cloudflare secret. `admin/wrangler.toml` uses `keep_vars`, preserving the existing ADMIN_PASSWORD; secret bindings are not stored here. The regular site workflows deploy the router changes.
 
 Rollback a site helper with a Git revert and its normal deployment. Roll back either admin/delivery Worker with its previous Cloudflare deployment version. For Pages, restore the previous deployment ID recorded in the change report. These rollbacks do not modify stored casinos or credentials.
+
+
+## NL card presentation
+
+NL uses Dutch (`language: nl`), explicitly requested by José. Public cards omit empty licence badges, bonus sections and deposit labels. Nonempty deposits remain visible; full licence text and payment data are in a keyboard-accessible native `details` section. Payment entries are individual tags, and currency-only entries use the currency label. User-entered facts, casino order and destinations are preserved. The preview uses the same details renderer, and the editor language selector now uses the backend language catalog, including Nederlands.
