@@ -1,0 +1,11 @@
+name = "admin"
+main = "src/worker.js"
+account_id = "485282ffb1d94304113b9aed82ccaa16"
+compatibility_date = "2026-04-22"
+keep_vars = true
+
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "a69bb28406af489f9d249f225c8f4e19"
+
+# Existing ADMIN_PASSWORD, GITHUB_TOKEN and RULES_API_KEY remain in Cloudflare.

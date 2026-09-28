@@ -1,3 +1,4 @@
+import { injectLiveToplist } from './live-toplist.js';
 const ALLOWED_BOT_DOMAINS = [".googlebot.com", ".google.com"];
 const CACHE_TTL_SECONDS = 86400;
 
@@ -476,7 +477,7 @@ async function injectVisitorMetaAndStyle(response, request, env) {
   return rewriter.transform(response);
 }
 
-export default {
+const router = {
   async fetch(request, env) {
     const url = new URL(request.url);
 
@@ -577,4 +578,10 @@ export default {
     if (locale) return injectLocaleMeta(response, locale);
     return response;
   }
+};
+
+export default {
+  async fetch(request, env) {
+    return injectLiveToplist(await router.fetch(request, env), 'italy');
+  },
 };

@@ -1,0 +1,2 @@
+import {injectLiveToplist} from '../shared/live-toplist.js';
+export default { async fetch(request, env) { const url = new URL(request.url); if (url.hostname === "nocruks-casinos.com" || url.protocol === "http:") { url.hostname = "www.nocruks-casinos.com"; url.protocol = "https:"; return Response.redirect(url.toString(), 301); } return injectLiveToplist(await env.ASSETS.fetch(request), 'netherlands'); } };
