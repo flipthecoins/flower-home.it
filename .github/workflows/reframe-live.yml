@@ -1,0 +1,24 @@
+name: Reframe live lists
+
+on:
+  push:
+    branches: [codex/reframe-live-lists]
+    paths: ['ops/reframe-admin/**', '.github/workflows/reframe-live.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check deployment access (read only)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_TOKEN_FLIPTHECOINS: ${{ secrets.CF_TOKEN_FLIPTHECOINS }}
+        run: node ops/reframe-admin/scripts/preflight.mjs
