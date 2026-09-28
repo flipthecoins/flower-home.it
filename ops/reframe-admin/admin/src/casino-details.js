@@ -1,5 +1,5 @@
 // Shared by the public NL cards and their preview. Keep user-entered facts intact.
-export function renderCasinoDetails(casino, lang, L) {
+export function renderCasinoDetails(casino, lang, L, escape) {
   const labels = {
     nl: { details: 'Casino-informatie', license: 'Licentie', currencies: "Valuta's" },
     de: { details: 'Casinodetails', license: 'Lizenz', currencies: 'Währungen' },
@@ -7,7 +7,6 @@ export function renderCasinoDetails(casino, lang, L) {
     it: { details: 'Informazioni sul casinò', license: 'Licenza', currencies: 'Valute' },
     es: { details: 'Información del casino', license: 'Licencia', currencies: 'Monedas' },
   }[lang] || { details: 'Casino details', license: 'License', currencies: 'Currencies' };
-  const escape = value => String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const license = String(casino.license || '').trim();
   const deposit = String(casino.min_deposit || '').trim();
   const methods = String(casino.methods || '').split(',').map(value => value.trim()).filter(Boolean);

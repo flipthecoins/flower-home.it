@@ -447,7 +447,7 @@ export function generateToplistHTML(casinos, config, lang, settings, countryId, 
                 <a href="${escHtml(link)}" class="btn btn--review" data-cs="${escHtml(c.slug)}:review" rel="noopener noreferrer nofollow" target="_blank">${ctaReview}</a>
             </div>
         </div>
-        ${compact ? renderCasinoDetails(c, lang, L) : `<div class="toplist__footer">
+        ${compact ? renderCasinoDetails(c, lang, L, escHtml) : `<div class="toplist__footer">
             <div class="toplist__footer-col">
                 <span class="toplist__footer-label">${L.methods_label}</span>
                 <span class="toplist__footer-val">${escHtml(c.methods)}</span>

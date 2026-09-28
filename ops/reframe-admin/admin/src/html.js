@@ -1419,7 +1419,7 @@ function generatePreviewHTML(casinoList, colors, linkBase, lang) {
           '<a href="' + link + '" class="btn--review" target="_blank" rel="noopener nofollow">' + esc(casino.cta_review || L.cta_review) + '</a>' +
         '</div>' +
       '</div>' +
-      (compact ? renderPublicDetails(casino, lang, L) : '<div class="toplist__footer">' +
+      (compact ? renderPublicDetails(casino, lang, L, esc) : '<div class="toplist__footer">' +
         '<div class="toplist__footer-col"><span class="toplist__footer-label">' + L.methods_label + '</span><span class="toplist__footer-val">' + esc(casino.methods || '') + '</span></div>' +
         '<div class="toplist__footer-col"><span class="toplist__footer-label">' + L.deposit_label + '</span><span class="toplist__footer-val">' + esc(casino.min_deposit || '') + '</span></div>' +
         '<div class="toplist__footer-col"><span class="toplist__footer-label">' + L.verified_label + '</span><span class="toplist__footer-val">' + L.disclaimer + '</span></div>' +

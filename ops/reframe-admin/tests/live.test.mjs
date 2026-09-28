@@ -1,5 +1,6 @@
 import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
+import { runInNewContext } from 'node:vm';
 import { build } from 'esbuild';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import delivery, { snapshot } from '../delivery/src/worker.js';
@@ -77,6 +78,18 @@ test('NL cards keep full facts in accessible details and omit empty fields', asy
   assert.match(second, /<dt>Betaalmethoden<\/dt>/);
   assert.match(second, /100% tot €100/);
   assert.doesNotMatch(data.html, /Jetzt spielen|Zahlungsmethoden|Mindesteinzahlung/);
+});
+
+test('the bundled preview renderer runs without Worker bundler helpers in the browser', async () => {
+  const bundle = await build({ entryPoints: ['admin/src/html.js'], bundle: true, format: 'esm', keepNames: true, write: false });
+  const compiled = await import('data:text/javascript;base64,' + Buffer.from(bundle.outputFiles[0].text).toString('base64'));
+  const document = compiled.html();
+  const start = document.indexOf('var renderPublicDetails =');
+  const end = document.indexOf('function generatePreviewHTML', start);
+  const render = runInNewContext(`(() => {${document.slice(start, end)} return renderPublicDetails;})()`);
+  const output = render({ methods: 'EUR, USD' }, 'nl', { methods_label: 'Betaalmethoden', disclaimer: '18+' }, value => String(value || ''));
+  assert.match(output, /Casino-informatie/);
+  assert.match(output, /<li>EUR<\/li><li>USD<\/li>/);
 });
 
 const built = await build({ stdin: {
