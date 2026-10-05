@@ -29,7 +29,7 @@ export const DETAILS_CSS = `
 .toplist__extras { border-top:1px solid rgba(255,255,255,.1); padding:0 14px; background:rgba(0,0,0,.12); color:var(--c-text,#eef2ff); }
 .toplist__deposit { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 12px; margin:0; padding:12px 0; font-size:12px; line-height:1.5; }
 .toplist__deposit span { opacity:.7; }
-.toplist__deposit strong { font-size:13px; font-weight:700; }
+.toplist__deposit strong { font-size:13px; font-weight:700; color:inherit; }
 .toplist__details { margin:0; padding:0; }
 .toplist__deposit + .toplist__details { border-top:1px solid rgba(255,255,255,.08); }
 .toplist__details summary { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; padding:10px 0; list-style:none; cursor:pointer; font-size:12px; font-weight:600; line-height:1.5; }
