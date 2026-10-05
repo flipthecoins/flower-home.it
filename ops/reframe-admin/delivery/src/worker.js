@@ -22,7 +22,7 @@ export async function snapshot(country, env, origin) {
   const versionBytes = new TextEncoder().encode(JSON.stringify([casinos, colors, settings, media]));
   const revision = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', versionBytes)), x => x.toString(16).padStart(2, '0')).join('').slice(0, 20);
   const published = publicCasinos(casinos, media, origin);
-  const lang = settings?.language || (country === 'netherlands' ? 'nl' : 'it');
+  const lang = settings?.language || (['netherlands', 'netherlands_cruks'].includes(country) ? 'nl' : 'it');
   return {
     country, revision, count: published.length,
     html: generateToplistHTML(published, config, lang, settings || {}, country, origin),

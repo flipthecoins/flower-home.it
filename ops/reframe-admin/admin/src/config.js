@@ -67,6 +67,7 @@ export const COUNTRIES = {
     bot_path: '',
     link_base: 'https://link.flower-home.it',
     kv_key: 'bot:casinos:italy_aams',
+    card_layout: 'compact',
   },
   italy: {
     // Keep the existing ID and site integrations for the NON AAMS list.
@@ -76,13 +77,25 @@ export const COUNTRIES = {
     bot_path: 'proyectos/flower-home.it/bot/index.html',
     link_base: 'https://link.flower-home.it',
     kv_key: 'bot:casinos:italy',
+    card_layout: 'compact',
   },
   netherlands: {
-    name: 'Netherlands',
+    // Keep the existing ID and site integrations for the Zonder CRUKS list.
+    name: 'Netherlands — Zonder CRUKS',
     flag: '🇳🇱',
     repo: 'driftwooddistillery.nl',
     bot_path: 'proyectos/driftwooddistillery.nl/bot/nl/index.html',
     link_base: 'https://www.driftwooddistillery.nl/go',
     kv_key: 'bot:casinos:netherlands',
+    card_layout: 'compact',
+  },
+  netherlands_cruks: {
+    name: 'Netherlands — CRUKS',
+    flag: '🇳🇱',
+    repo: '',
+    bot_path: '',
+    link_base: 'https://www.driftwooddistillery.nl/go',
+    kv_key: 'bot:casinos:netherlands_cruks',
+    card_layout: 'compact',
   },
 };

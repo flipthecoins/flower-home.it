@@ -117,6 +117,62 @@ test('NL cards keep full facts in accessible details and omit empty fields', asy
   assert.doesNotMatch(data.html, /Jetzt spielen|Zahlungsmethoden|Mindesteinzahlung/);
 });
 
+test('Dutch lists save independently and both use Dutch compact cards', async () => {
+  const env = environment();
+  const zonder = [{ name: 'Offshore example', slug: 'offshore', license: 'Geen KSA', methods: 'EUR, BTC', bonus: '' }];
+  const cruks = [{ name: 'Licensed example', slug: 'licensed', license: 'KSA 1234', methods: 'iDEAL, Visa', bonus: '' }];
+  env.data.set('bot:casinos:netherlands', zonder);
+  env.data.set('bot:settings:netherlands', { language: 'nl' });
+  const headers = { Authorization: 'Bearer test' };
+  const save = await admin.fetch(new Request('https://admin.example/api/casinos/netherlands_cruks', {
+    method: 'POST', headers, body: JSON.stringify({ casinos: cruks, colors: { cta: '#00c896' } }),
+  }), env);
+  assert.equal((await save.json()).ok, true);
+  assert.deepEqual(env.data.get('bot:casinos:netherlands'), zonder);
+  assert.deepEqual(env.data.get('bot:casinos:netherlands_cruks'), cruks);
+  assert.equal(env.data.has('bot:colors:netherlands'), false);
+  const existing = await snapshot('netherlands', env, 'https://public.example');
+  const licensed = await snapshot('netherlands_cruks', env, 'https://public.example');
+  assert.match(existing.html, /Offshore example/);
+  assert.doesNotMatch(existing.html, /Licensed example/);
+  assert.match(licensed.html, /Licensed example/);
+  assert.doesNotMatch(licensed.html, /Offshore example/);
+  for (const data of [existing, licensed]) {
+    assert.match(data.html, /toplist__item--compact/);
+    assert.match(data.html, /<summary>Casino-informatie/);
+    assert.match(data.html, /Speel Nu/);
+    assert.doesNotMatch(data.html, /toplist__bonus|toplist__footer|toplist__license/);
+  }
+  const countries = await (await admin.fetch(new Request('https://admin.example/api/countries', { headers }), env)).json();
+  assert.deepEqual(countries.filter(c => c.id.startsWith('netherlands')).map(c => [c.name, c.casinoCount]), [
+    ['Netherlands — Zonder CRUKS', 1], ['Netherlands — CRUKS', 1],
+  ]);
+});
+
+test('both Italian lists use the compact design with Italian details and preserve all casino facts', async () => {
+  const casinos = [
+    { name: 'Empty fields', slug: 'empty', license: ' ', bonus: '', methods: '', min_deposit: '' },
+    { name: 'Full facts', slug: 'full', license: 'Licenza ADM/AAMS <1234>', bonus: 'Bonus originale', methods: 'Visa, PayPal', min_deposit: '€10' },
+  ];
+  const env = environment(casinos);
+  env.data.set('bot:casinos:italy_aams', casinos);
+  for (const country of ['italy', 'italy_aams']) {
+    const data = await snapshot(country, env, 'https://public.example');
+    const [empty, full] = data.html.split('role="listitem"').slice(1);
+    assert.equal((data.html.match(/toplist__item--compact/g) || []).length, 2);
+    assert.doesNotMatch(empty, /toplist__bonus|toplist__deposit|toplist__details/);
+    assert.doesNotMatch(data.html, /toplist__footer|toplist__license|Casino-informatie/);
+    assert.match(full, /<summary>Informazioni sul casinò/);
+    assert.match(full, /Licenza ADM\/AAMS &lt;1234&gt;/);
+    assert.match(full, /<li>Visa<\/li><li>PayPal<\/li>/);
+    assert.match(full, /Deposito minimo/);
+    assert.match(full, /<strong>€10<\/strong>/);
+    assert.match(full, /Bonus originale/);
+    assert.match(full, /Gioca ora/);
+    assert.deepEqual(env.data.get('bot:casinos:' + country), casinos);
+  }
+});
+
 test('the bundled preview renderer runs without Worker bundler helpers in the browser', async () => {
   const bundle = await build({ entryPoints: ['admin/src/html.js'], bundle: true, format: 'esm', keepNames: true, write: false });
   const compiled = await import('data:text/javascript;base64,' + Buffer.from(bundle.outputFiles[0].text).toString('base64'));

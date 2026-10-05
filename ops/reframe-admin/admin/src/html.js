@@ -1379,7 +1379,7 @@ function renderPreviewTab() {
 var renderPublicDetails = ${renderCasinoDetails.toString()};
 
 function generatePreviewHTML(casinoList, colors, linkBase, lang) {
-  var compact = currentCountry && currentCountry.id === 'netherlands';
+  var compact = currentCountry && currentCountry.card_layout === 'compact';
   var c = Object.assign({}, DEFAULT_COLORS, colors || {});
   var L = Object.assign({}, LANGS[lang] || LANGS.it, {
     cta_play:   (currentSettings.cta_play   || '') || (LANGS[lang] || LANGS.it).cta_play,

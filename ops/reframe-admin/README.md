@@ -17,6 +17,14 @@ with no site or static repository assigned. The initial split uses the licence
 labels already saved in the panel and preserves every casino field and the
 relative order within each list.
 
+The Netherlands also has two independent lists: `netherlands` (Netherlands —
+Zonder CRUKS) and `netherlands_cruks` (Netherlands — CRUKS). Existing Dutch sites
+keep using `netherlands`; the CRUKS list has its own saved data and public
+`/lists/netherlands_cruks.json` endpoint, with no site or static repository
+assigned. Both lists keep the Dutch language, colors and compact cards. The
+initial split uses the saved KSA licence labels, excluding explicit negatives
+such as "Geen KSA", and preserves every casino field and the order in each group.
+
 | Country | Site | Integration source |
 | --- | --- | --- |
 | Italy | flower-home.it and its current router aliases | `proyectos/flower-home.it/workers/router/src/live-toplist.js` |
@@ -39,6 +47,10 @@ The `Reframe live lists` workflow checks branch pushes and deploys both Workers 
 Rollback a site helper with a Git revert and its normal deployment. Roll back either admin/delivery Worker with its previous Cloudflare deployment version. For Pages, restore the previous deployment ID recorded in the change report. These rollbacks do not modify stored casinos or credentials.
 
 
-## NL card presentation
+## Italian and Dutch card presentation
 
 NL uses Dutch (`language: nl`), explicitly requested by José. Public cards omit empty licence badges, bonus sections and deposit labels. Nonempty deposits remain visible; full licence text and payment data are in a keyboard-accessible native `details` section. Payment entries are individual tags, and currency-only entries use the currency label. User-entered facts, casino order and destinations are preserved. The preview uses the same details renderer, and the editor language selector now uses the backend language catalog, including Nederlands.
+
+Both Italian lists now use the same compact presentation, with Italian labels
+and their existing colors. `card_layout: 'compact'` in the country configuration
+selects this layout consistently for public delivery, static copies and previews.

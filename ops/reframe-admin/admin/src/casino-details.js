@@ -1,4 +1,4 @@
-// Shared by the public NL cards and their preview. Keep user-entered facts intact.
+// Shared by compact public cards and their preview. Keep user-entered facts intact.
 export function renderCasinoDetails(casino, lang, L, escape) {
   const labels = {
     nl: { details: 'Casino-informatie', license: 'Licentie', currencies: "Valuta's" },

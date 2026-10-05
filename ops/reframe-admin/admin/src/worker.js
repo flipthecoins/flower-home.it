@@ -412,7 +412,7 @@ export function generateToplistHTML(casinos, config, lang, settings, countryId, 
     cta_review: (settings && settings.cta_review) || base.cta_review,
   });
   const linkBase = config.link_base || '';
-  const compact = countryId === 'netherlands' || config.kv_key === 'bot:casinos:netherlands';
+  const compact = config.card_layout === 'compact';
   const items = casinos.map((c, i) => {
     const rank = i + 1;
     const isTop3 = rank <= 3;
