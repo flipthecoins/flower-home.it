@@ -54,3 +54,10 @@ NL uses Dutch (`language: nl`), explicitly requested by José. Public cards omit
 Both Italian lists now use the same compact presentation, with Italian labels
 and their existing colors. `card_layout: 'compact'` in the country configuration
 selects this layout consistently for public delivery, static copies and previews.
+
+On desktop, compact cards use a horizontal row with a smaller brand area and
+more room for the complete bonus text. Deposit, legal notice and the details
+toggle share one footer row. Opening details reveals licence and payments below
+without moving the toggle. These density rules apply above 680px; mobile keeps
+its existing layout. Check full-list screenshots and card heights when changing
+this presentation, including both the site's CSS and the admin preview.
