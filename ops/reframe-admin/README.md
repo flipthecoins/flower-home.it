@@ -61,3 +61,8 @@ toggle share one footer row. Opening details reveals licence and payments below
 without moving the toggle. These density rules apply above 680px; mobile keeps
 its existing layout. Check full-list screenshots and card heights when changing
 this presentation, including both the site's CSS and the admin preview.
+
+On mobile, casino names use 20px type for readability and badges wrap in narrow
+previews. Payment and currency tags
+explicitly suppress native markers and inherited pseudo-element bullets at every
+screen size, including when embedded inside article lists.
