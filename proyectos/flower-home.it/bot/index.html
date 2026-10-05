@@ -112,7 +112,9 @@
 .toplist__detail-row dt { margin:0 0 5px; font-size:11px; line-height:1.5; font-weight:600; opacity:.65; }
 .toplist__detail-row dd { margin:0; font-size:12px; line-height:1.6; overflow-wrap:anywhere; }
 .toplist__payment-list { display:flex; flex-wrap:wrap; gap:6px; list-style:none; margin:0 !important; padding:0 !important; }
-.toplist__payment-list li { margin:0 !important; padding:3px 8px !important; max-width:100%; border:1px solid rgba(255,255,255,.12); border-radius:5px; background:rgba(255,255,255,.04); font-size:11px; line-height:1.5; overflow-wrap:anywhere; }
+.toplist__payment-list li { list-style:none !important; margin:0 !important; padding:3px 8px !important; max-width:100%; border:1px solid rgba(255,255,255,.12); border-radius:5px; background:rgba(255,255,255,.04); font-size:11px; line-height:1.5; overflow-wrap:anywhere; }
+.toplist__payment-list li::marker { content:'' !important; }
+.toplist__payment-list li::before { content:none !important; }
 .toplist__legal { display:block; margin:0; padding:8px 0 10px; font-size:10px; line-height:1.5; opacity:.55; }
 .toplist__details + .toplist__legal { padding-top:0; }
 @media(min-width:681px) {
@@ -144,8 +146,6 @@
   .toplist__item--compact .toplist__details summary { position:absolute; z-index:1; top:0; right:14px; min-height:36px; max-width:180px; padding:0; gap:8px; font-size:11px; }
   .toplist__item--compact .toplist__details summary svg { width:14px; height:14px; }
   .toplist__item--compact .toplist__details dl { grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:20px; margin:0; padding:12px 0; border-top:1px solid rgba(255,255,255,.08); }
-  .toplist__item--compact .toplist__payment-list li { list-style:none !important; }
-  .toplist__item--compact .toplist__payment-list li::before { content:none !important; }
 }
 @media(min-width:681px) and (max-width:900px) {
   .toplist__item--compact .toplist__main { grid-template-columns:28px 76px minmax(100px,124px) minmax(0,1fr) 132px; }
@@ -155,6 +155,8 @@
   .toplist__item--compact .toplist__bonus-value { font-size:14px; }
 }
 @media(max-width:680px) {
+  .toplist__item--compact .toplist__name { font-size:20px; line-height:1.25; font-weight:800; }
+  .toplist__item--compact .toplist__header .badge { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
   .toplist__item--compact .toplist__cta > a { flex:1; width:auto; min-width:0; min-height:44px; padding:10px 8px; font-size:13px; line-height:1.35; text-align:center; }
   .toplist__item--no-bonus .toplist__cta { grid-row:2; }
   .toplist__item--no-bonus .toplist__rank { grid-row:1; }
