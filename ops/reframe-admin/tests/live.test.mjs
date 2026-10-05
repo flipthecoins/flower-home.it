@@ -48,6 +48,43 @@ test('public delivery distinguishes deliberately empty lists from missing data',
   assert.equal((await delivery.fetch(new Request('https://public.example/api/casinos/italy'), env)).status, 404);
 });
 
+test('Italian lists have independent saves and public cards while existing sites keep the italy ID', async () => {
+  const nonAams = [{ name: 'Offshore example', slug: 'offshore', license: 'Licenza Curaçao' }];
+  const aams = [{ name: 'Italian example', slug: 'italian', license: 'Licenza ADM/AAMS', destination: 'https://example.it/' }];
+  const env = environment(nonAams);
+  const headers = { Authorization: 'Bearer test' };
+  const saved = await admin.fetch(new Request('https://admin.example/api/casinos/italy_aams', {
+    method: 'POST', headers, body: JSON.stringify({ casinos: aams, colors: { cta: '#123456' } }),
+  }), env);
+  assert.equal(saved.status, 200);
+  assert.equal((await saved.json()).ok, true);
+  assert.deepEqual(env.data.get('bot:casinos:italy'), nonAams);
+  assert.deepEqual(env.data.get('bot:casinos:italy_aams'), aams);
+  assert.equal(env.data.has('bot:colors:italy'), false);
+
+  const countries = await (await admin.fetch(new Request('https://admin.example/api/countries', { headers }), env)).json();
+  assert.deepEqual(countries.filter(c => c.id.startsWith('italy')).map(c => [c.name, c.casinoCount]), [
+    ['Italy — AAMS', 1], ['Italy — NON AAMS', 1],
+  ]);
+  const legacy = await snapshot('italy', env, 'https://public.example');
+  const licensed = await snapshot('italy_aams', env, 'https://public.example');
+  assert.match(legacy.html, /Offshore example/);
+  assert.doesNotMatch(legacy.html, /Italian example/);
+  assert.match(licensed.html, /Italian example/);
+  assert.doesNotMatch(licensed.html, /Offshore example/);
+  assert.match(licensed.html, /https:\/\/example.it\//);
+  const clicks = [];
+  runInNewContext(licensed.html.match(/<script>([\s\S]*?)<\/script>/)[1], {
+    navigator: { languages: ['it'], sendBeacon: url => clicks.push(url) },
+    document: { addEventListener: (_type, callback) => callback({
+      target: { closest: () => ({ dataset: { cs: 'italian:play' } }) },
+    }) },
+  });
+  assert.deepEqual(clicks, ['https://public.example/api/click/italy_aams/italian/play']);
+  assert.match(licensed.html, /Gioca ora/);
+  assert.match(licensed.css, /#123456/);
+});
+
 test('markup remains escaped and invalid link protocols do not become active links', async () => {
   const env = environment([{ name: '<script>alert(1)</script>', slug: 'a" onmouseover="bad', logo: 'a".png', link: 'javascript:alert(1)', rating: '', bonus: '<b>untrusted</b>' }]);
   const data = await snapshot('italy', env, 'https://public.example');

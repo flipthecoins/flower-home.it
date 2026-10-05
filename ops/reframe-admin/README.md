@@ -10,6 +10,13 @@ The admin still writes its configured HTML to GitHub for history and static fall
 
 ## Integrations
 
+Italy has two independent lists: `italy_aams` (Italy — AAMS) and `italy`
+(Italy — NON AAMS). Existing Italian sites keep using `italy`; the AAMS list
+has its own saved casinos, settings and public `/lists/italy_aams.json` endpoint,
+with no site or static repository assigned. The initial split uses the licence
+labels already saved in the panel and preserves every casino field and the
+relative order within each list.
+
 | Country | Site | Integration source |
 | --- | --- | --- |
 | Italy | flower-home.it and its current router aliases | `proyectos/flower-home.it/workers/router/src/live-toplist.js` |

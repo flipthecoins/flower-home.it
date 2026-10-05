@@ -60,8 +60,17 @@ export const LANGS = {
 };
 
 export const COUNTRIES = {
+  italy_aams: {
+    name: 'Italy — AAMS',
+    flag: '🇮🇹',
+    repo: '',
+    bot_path: '',
+    link_base: 'https://link.flower-home.it',
+    kv_key: 'bot:casinos:italy_aams',
+  },
   italy: {
-    name: 'Italy',
+    // Keep the existing ID and site integrations for the NON AAMS list.
+    name: 'Italy — NON AAMS',
     flag: '🇮🇹',
     repo: 'flower-home.it',
     bot_path: 'proyectos/flower-home.it/bot/index.html',
