@@ -52,6 +52,10 @@
         "hreflang_tags": [
           {
             "origin": "https://www.flower-home.it/",
+            "lang": "x-default"
+          },
+          {
+            "origin": "https://www.flower-home.it/",
             "lang": "it"
           },
           {
