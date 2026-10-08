@@ -42,130 +42,6 @@
     }
     </script>
     <!-- TOPLIST_STYLE_START -->
-<style id="toplist-custom-colors">
-.toplist, .toplist-slot, .sticky-bonus {
-  --c-navy: #1d3557;
-  --c-navy-dark: #1d3557;
-  --c-navy-light: #1d3557;
-  --c-gold: #d4af37;
-  --c-gold-light: #d4af37;
-  --c-red: #e63946;
-  --c-red-dark: #e63946;
-  --c-text: #ffffff;
-}
-.toplist__item { background: #1d3557 !important; }
-.toplist__name, .toplist__bonus-value { color: #ffffff !important; }
-.toplist__bonus-label, .toplist__footer-label { color: #ffffff !important; opacity: .5; }
-.toplist__footer-val, .toplist__license { color: #ffffff !important; opacity: .75; }
-.btn--play {
-  background: linear-gradient(135deg, #16a34a, color-mix(in srgb, #16a34a 78%, #000)) !important;
-  box-shadow: 0 4px 14px #16a34a66 !important;
-}
-.btn--play::after { content: '→'; transition: transform .15s ease; }
-.btn--play:hover {
-  background: linear-gradient(135deg, color-mix(in srgb, #16a34a 88%, #000), color-mix(in srgb, #16a34a 68%, #000)) !important;
-  box-shadow: 0 6px 20px #16a34a80 !important;
-  transform: translateY(-1px);
-}
-.btn--play:hover::after { transform: translateX(3px); }
-
-.toplist__main { grid-template-columns: 44px minmax(150px,180px) minmax(130px,1fr) minmax(140px,210px) minmax(120px,170px); }
-.toplist__logo { box-sizing:border-box; min-width:0; min-height:112px; padding:8px !important; overflow:hidden; }
-.toplist__logo-img { display:block !important; width:100% !important; height:104px !important; max-width:100% !important; max-height:none !important; object-fit:contain !important; }
-.toplist__info { min-width:0; }
-.toplist__name { overflow-wrap:anywhere; }
-.toplist__license { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
-@media(max-width:900px) and (min-width:681px) {
-  .toplist__main { grid-template-columns:36px 138px minmax(100px,1fr) minmax(125px,160px) minmax(105px,140px); }
-}
-@media(max-width:680px) {
-  .toplist__main { grid-template-columns:32px 120px minmax(0,1fr) !important; }
-  .toplist__logo { min-height:96px; padding:6px !important; }
-  .toplist__logo-img { height:84px !important; }
-  .toplist__info { padding:10px !important; }
-  .toplist__footer { grid-template-columns:1fr !important; }
-  .toplist__footer-label, .toplist__footer-val { white-space:normal !important; overflow-wrap:anywhere; }
-}
-@media(max-width:380px) {
-  .toplist__main { grid-template-columns:28px 104px minmax(0,1fr) !important; }
-  .toplist__logo-img { height:76px !important; }
-}
-
-
-.toplist__item--compact .toplist__header { gap:8px; }
-.toplist__item--compact .toplist__bonus-value { overflow-wrap:anywhere; }
-.toplist__extras { border-top:1px solid rgba(255,255,255,.1); padding:0 14px; background:rgba(0,0,0,.12); color:var(--c-text,#eef2ff); }
-.toplist__deposit { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 12px; margin:0; padding:12px 0; font-size:12px; line-height:1.5; }
-.toplist__deposit span { opacity:.7; }
-.toplist__deposit strong { font-size:13px; font-weight:700; color:inherit; }
-.toplist__details { margin:0; padding:0; }
-.toplist__deposit + .toplist__details { border-top:1px solid rgba(255,255,255,.08); }
-.toplist__details summary { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; padding:10px 0; list-style:none; cursor:pointer; font-size:12px; font-weight:600; line-height:1.5; }
-.toplist__details summary::-webkit-details-marker { display:none; }
-.toplist__details summary:hover { color:var(--accent,#00c896); }
-.toplist__details summary:focus-visible { outline:2px solid currentColor; outline-offset:3px; border-radius:3px; }
-.toplist__details summary svg { width:18px; height:18px; flex-shrink:0; fill:none; stroke:currentColor; stroke-width:1.75; transition:transform .15s; }
-.toplist__details[open] summary svg { transform:rotate(180deg); }
-.toplist__details dl { margin:0; padding:8px 0 12px; display:grid; gap:14px; }
-.toplist__detail-row { min-width:0; }
-.toplist__detail-row dt { margin:0 0 5px; font-size:11px; line-height:1.5; font-weight:600; opacity:.65; }
-.toplist__detail-row dd { margin:0; font-size:12px; line-height:1.6; overflow-wrap:anywhere; }
-.toplist__payment-list { display:flex; flex-wrap:wrap; gap:6px; list-style:none; margin:0 !important; padding:0 !important; }
-.toplist__payment-list li { list-style:none !important; margin:0 !important; padding:3px 8px !important; max-width:100%; border:1px solid rgba(255,255,255,.12); border-radius:5px; background:rgba(255,255,255,.04); font-size:11px; line-height:1.5; overflow-wrap:anywhere; }
-.toplist__payment-list li::marker { content:'' !important; }
-.toplist__payment-list li::before { content:none !important; }
-.toplist__legal { display:block; margin:0; padding:8px 0 10px; font-size:10px; line-height:1.5; opacity:.55; }
-.toplist__details + .toplist__legal { padding-top:0; }
-@media(min-width:681px) {
-  .toplist:has(> .toplist__item--compact) { gap:10px; }
-  .toplist__item--compact { border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,.18); }
-  .toplist__item--compact:hover { transform:none; }
-  .toplist__item--compact .toplist__main { grid-template-columns:32px 88px minmax(110px,150px) minmax(0,1fr) 148px; min-height:96px; align-items:center; }
-  .toplist__item--compact.toplist__item--no-bonus .toplist__main { grid-template-columns:32px 88px minmax(0,1fr) 148px; }
-  .toplist__item--compact .toplist__rank { align-self:stretch; font-size:16px; background:none; border:0; }
-  .toplist__item--compact .toplist__logo { min-height:0; padding:8px !important; border:0; background:none; }
-  .toplist__item--compact .toplist__logo-img { height:72px !important; max-width:80px !important; }
-  .toplist__item--compact .toplist__info { padding:10px 12px 10px 8px; gap:4px; border:0; }
-  .toplist__item--compact .toplist__name { font-size:16px; line-height:1.3; font-weight:750; }
-  .toplist__item--compact .toplist__bonus { align-self:stretch; min-width:0; padding:12px 16px; gap:4px; border:0; border-left:1px solid rgba(255,255,255,.08); }
-  .toplist__item--compact .toplist__bonus-label { font-size:10px; line-height:1.3; letter-spacing:.04em; }
-  .toplist__item--compact .toplist__bonus-value { font-size:15px; line-height:1.45; font-weight:650; }
-  .toplist__item--compact .toplist__cta { padding:10px 12px; gap:4px; border:0; }
-  .toplist__item--compact .toplist__cta > a { width:100%; margin:0; justify-content:center; text-align:center; }
-  .toplist__item--compact .toplist__cta .btn--play { min-height:38px; padding:8px 10px; border-radius:8px; font-size:14px; line-height:1.35; box-shadow:none !important; }
-  .toplist__item--compact .toplist__cta .btn--review { min-height:24px; padding:3px 8px; border:0; background:none; box-shadow:none; font-size:12px; line-height:1.5; color:inherit; opacity:.8; }
-  .toplist__item--compact .toplist__cta .btn--review:hover { opacity:1; text-decoration:underline; }
-  .toplist__item--compact .toplist__extras { position:relative; display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:0 16px; min-height:36px; padding:0 14px; }
-  .toplist__item--compact .toplist__deposit { grid-column:1; grid-row:1; min-height:36px; align-items:center; gap:8px; padding:0; margin:0 !important; font-size:11px; }
-  .toplist__item--compact .toplist__deposit strong { font-size:12px; }
-  .toplist__item--compact .toplist__legal { grid-column:2; grid-row:1; display:flex; align-items:center; min-height:36px; padding:0; margin:0; font-size:10px; line-height:1.4; opacity:.65; }
-  .toplist__item--compact .toplist__extras:has(.toplist__details) .toplist__legal { padding-right:180px; }
-  .toplist__item--compact .toplist__extras:not(:has(.toplist__deposit)) .toplist__legal { grid-column:1 / -1; }
-  .toplist__item--compact .toplist__details { grid-column:1 / -1; grid-row:2; min-width:0; border:0; }
-  .toplist__item--compact .toplist__details summary { position:absolute; z-index:1; top:0; right:14px; min-height:36px; max-width:180px; padding:0; gap:8px; font-size:11px; }
-  .toplist__item--compact .toplist__details summary svg { width:14px; height:14px; }
-  .toplist__item--compact .toplist__details dl { grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:20px; margin:0; padding:12px 0; border-top:1px solid rgba(255,255,255,.08); }
-}
-@media(min-width:681px) and (max-width:900px) {
-  .toplist__item--compact .toplist__main { grid-template-columns:28px 76px minmax(100px,124px) minmax(0,1fr) 132px; }
-  .toplist__item--compact.toplist__item--no-bonus .toplist__main { grid-template-columns:28px 76px minmax(0,1fr) 132px; }
-  .toplist__item--compact .toplist__logo-img { height:64px !important; }
-  .toplist__item--compact .toplist__bonus { padding:10px 12px; }
-  .toplist__item--compact .toplist__bonus-value { font-size:14px; }
-}
-@media(max-width:680px) {
-  .toplist__item--compact .toplist__name { font-size:20px; line-height:1.25; font-weight:800; }
-  .toplist__item--compact .toplist__header .badge { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
-  .toplist__item--compact .toplist__cta > a { flex:1; width:auto; min-width:0; min-height:44px; padding:10px 8px; font-size:13px; line-height:1.35; text-align:center; }
-  .toplist__item--no-bonus .toplist__cta { grid-row:2; }
-  .toplist__item--no-bonus .toplist__rank { grid-row:1; }
-}
-
-@media (max-width: 600px) {
-  .toplist__cta { flex-direction: row !important; }
-  .btn--review { order: -1; }
-}
-</style>
 <!-- TOPLIST_STYLE_END -->
 <style id="toplist-custom-colors">
 .toplist, .toplist-slot, .sticky-bonus {
@@ -347,36 +223,6 @@
         <div class="toplist__main">
             <div class="toplist__rank toplist__rank--1">1</div>
             <div class="toplist__logo">
-                <img src="https://reframe-toplists.reframe-web.workers.dev/media/realz.jpg?v=2026-10-08T20%3A41%3A48.950Z" alt="Realz" class="toplist__logo-img">
-            </div>
-            <div class="toplist__info">
-                <div class="toplist__header">
-                    <span class="toplist__name">Realz</span>
-                    
-                </div>
-                
-                
-            </div>
-            <div class="toplist__bonus">
-                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
-                <span class="toplist__bonus-value">300% fino a €3.000 + 300 giri gratis</span>
-            </div>
-            <div class="toplist__cta">
-                <a href="https://rltz.joklora.com/?mid=392566_2259619" class="btn btn--play" data-cs="realz:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://rltz.joklora.com/?mid=392566_2259619" class="btn btn--review" data-cs="realz:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
-            </div>
-        </div>
-        <div class="toplist__extras">
-    <p class="toplist__deposit"><span>Deposito minimo</span><strong>€20 (bonus di benvenuto), €10 in generale</strong></p>
-    <details class="toplist__details"><summary>Informazioni sul casinò<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary><dl><div class="toplist__detail-row"><dt>Metodo di deposito</dt><dd><ul class="toplist__payment-list" role="list"><li>Carte</li><li>Paysafecard</li><li>Revolut</li><li>Skrill</li><li>MiFinity</li><li>criptovalute (Bitcoin</li><li>Ethereum</li><li>USDT</li><li>Litecoin)</li></ul></dd></div></dl></details>
-    <small class="toplist__legal">18+ | Si applicano i T&amp;C</small>
-  </div>
-    </div>
-
-    <div class="toplist__item toplist__item--top toplist__item--2 toplist__item--compact" role="listitem">
-        <div class="toplist__main">
-            <div class="toplist__rank toplist__rank--2">2</div>
-            <div class="toplist__logo">
                 <img src="https://reframe-toplists.reframe-web.workers.dev/media/casoola-full.svg?v=2026-10-08T22%3A05%3A48.750Z" alt="Casoola" class="toplist__logo-img">
             </div>
             <div class="toplist__info">
@@ -403,9 +249,99 @@
   </div>
     </div>
 
+    <div class="toplist__item toplist__item--top toplist__item--2 toplist__item--compact" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank toplist__rank--2">2</div>
+            <div class="toplist__logo">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/vegashero.png?v=2026-10-08T21%3A58%3A23.558Z" alt="VegasHero" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">VegasHero</span>
+                    
+                </div>
+                
+                
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €500 + 200 giri gratis</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://vgr.lynmonkel.com/?mid=392597_2259893" class="btn btn--play" data-cs="vegashero:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://vgr.lynmonkel.com/?mid=392597_2259893" class="btn btn--review" data-cs="vegashero:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__extras">
+    <p class="toplist__deposit"><span>Deposito minimo</span><strong>€10</strong></p>
+    <details class="toplist__details"><summary>Informazioni sul casinò<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary><dl><div class="toplist__detail-row"><dt>Metodo di deposito</dt><dd><ul class="toplist__payment-list" role="list"><li>Bonifico</li><li>Mastercard</li><li>Paysafecard</li><li>Skrill</li><li>Neteller</li><li>MiFinity</li><li>Revolut</li><li>Interac</li><li>criptovalute (Bitcoin</li><li>Litecoin</li><li>Tether)</li></ul></dd></div></dl></details>
+    <small class="toplist__legal">18+ | Si applicano i T&amp;C</small>
+  </div>
+    </div>
+
     <div class="toplist__item toplist__item--top toplist__item--3 toplist__item--compact" role="listitem">
         <div class="toplist__main">
             <div class="toplist__rank toplist__rank--3">3</div>
+            <div class="toplist__logo">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/magius.png?v=2026-10-08T22%3A01%3A23.465Z" alt="Magius" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Magius</span>
+                    
+                </div>
+                
+                
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">100% fino a €500 + 200 giri gratis</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://mgs.lynmonkel.com/?mid=392597_2259898" class="btn btn--play" data-cs="magius:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://mgs.lynmonkel.com/?mid=392597_2259898" class="btn btn--review" data-cs="magius:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__extras">
+    <p class="toplist__deposit"><span>Deposito minimo</span><strong>€10</strong></p>
+    <details class="toplist__details"><summary>Informazioni sul casinò<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary><dl><div class="toplist__detail-row"><dt>Metodo di deposito</dt><dd><ul class="toplist__payment-list" role="list"><li>Bonifico</li><li>Mastercard</li><li>Paysafecard</li><li>Skrill</li><li>Neteller</li><li>MiFinity</li><li>Revolut</li><li>Interac</li><li>criptovalute (Bitcoin</li><li>Litecoin</li><li>Tether)</li></ul></dd></div></dl></details>
+    <small class="toplist__legal">18+ | Si applicano i T&amp;C</small>
+  </div>
+    </div>
+
+    <div class="toplist__item toplist__item--compact" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">4</div>
+            <div class="toplist__logo">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/realz.jpg?v=2026-10-08T20%3A41%3A48.950Z" alt="Realz" class="toplist__logo-img">
+            </div>
+            <div class="toplist__info">
+                <div class="toplist__header">
+                    <span class="toplist__name">Realz</span>
+                    
+                </div>
+                
+                
+            </div>
+            <div class="toplist__bonus">
+                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
+                <span class="toplist__bonus-value">300% fino a €3.000 + 300 giri gratis</span>
+            </div>
+            <div class="toplist__cta">
+                <a href="https://rltz.joklora.com/?mid=392566_2259619" class="btn btn--play" data-cs="realz:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+                <a href="https://rltz.joklora.com/?mid=392566_2259619" class="btn btn--review" data-cs="realz:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
+            </div>
+        </div>
+        <div class="toplist__extras">
+    <p class="toplist__deposit"><span>Deposito minimo</span><strong>€20 (bonus di benvenuto), €10 in generale</strong></p>
+    <details class="toplist__details"><summary>Informazioni sul casinò<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary><dl><div class="toplist__detail-row"><dt>Metodo di deposito</dt><dd><ul class="toplist__payment-list" role="list"><li>Carte</li><li>Paysafecard</li><li>Revolut</li><li>Skrill</li><li>MiFinity</li><li>criptovalute (Bitcoin</li><li>Ethereum</li><li>USDT</li><li>Litecoin)</li></ul></dd></div></dl></details>
+    <small class="toplist__legal">18+ | Si applicano i T&amp;C</small>
+  </div>
+    </div>
+
+    <div class="toplist__item toplist__item--compact" role="listitem">
+        <div class="toplist__main">
+            <div class="toplist__rank">5</div>
             <div class="toplist__logo">
                 <img src="https://reframe-toplists.reframe-web.workers.dev/media/casea-gold.jpg?v=2026-10-08T22%3A19%3A49.956Z" alt="Casea" class="toplist__logo-img">
             </div>
@@ -435,7 +371,7 @@
 
     <div class="toplist__item toplist__item--compact" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">4</div>
+            <div class="toplist__rank">6</div>
             <div class="toplist__logo">
                 <img src="https://reframe-toplists.reframe-web.workers.dev/media/vegasino.jpg?v=2026-10-08T20%3A40%3A24.089Z" alt="Vegasino" class="toplist__logo-img">
             </div>
@@ -465,7 +401,7 @@
 
     <div class="toplist__item toplist__item--compact" role="listitem">
         <div class="toplist__main">
-            <div class="toplist__rank">5</div>
+            <div class="toplist__rank">7</div>
             <div class="toplist__logo">
                 <img src="https://reframe-toplists.reframe-web.workers.dev/media/mafiacasino.jpg?v=2026-10-08T20%3A41%3A34.999Z" alt="Mafia Casino" class="toplist__logo-img">
             </div>
@@ -489,66 +425,6 @@
         <div class="toplist__extras">
     <p class="toplist__deposit"><span>Deposito minimo</span><strong>€20 (bonus di benvenuto), €10 in generale</strong></p>
     <details class="toplist__details"><summary>Informazioni sul casinò<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary><dl><div class="toplist__detail-row"><dt>Metodo di deposito</dt><dd><ul class="toplist__payment-list" role="list"><li>Carte</li><li>Paysafecard</li><li>Revolut</li><li>N26</li><li>Skrill</li><li>MiFinity</li><li>criptovalute (Bitcoin</li><li>Ethereum</li><li>USDT</li><li>Litecoin)</li></ul></dd></div></dl></details>
-    <small class="toplist__legal">18+ | Si applicano i T&amp;C</small>
-  </div>
-    </div>
-
-    <div class="toplist__item toplist__item--compact" role="listitem">
-        <div class="toplist__main">
-            <div class="toplist__rank">6</div>
-            <div class="toplist__logo">
-                <img src="https://reframe-toplists.reframe-web.workers.dev/media/vegashero.png?v=2026-10-08T21%3A58%3A23.558Z" alt="VegasHero" class="toplist__logo-img">
-            </div>
-            <div class="toplist__info">
-                <div class="toplist__header">
-                    <span class="toplist__name">VegasHero</span>
-                    
-                </div>
-                
-                
-            </div>
-            <div class="toplist__bonus">
-                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
-                <span class="toplist__bonus-value">100% fino a €500 + 200 giri gratis</span>
-            </div>
-            <div class="toplist__cta">
-                <a href="https://vgr.lynmonkel.com/?mid=392597_2259893" class="btn btn--play" data-cs="vegashero:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://vgr.lynmonkel.com/?mid=392597_2259893" class="btn btn--review" data-cs="vegashero:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
-            </div>
-        </div>
-        <div class="toplist__extras">
-    <p class="toplist__deposit"><span>Deposito minimo</span><strong>€10</strong></p>
-    <details class="toplist__details"><summary>Informazioni sul casinò<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary><dl><div class="toplist__detail-row"><dt>Metodo di deposito</dt><dd><ul class="toplist__payment-list" role="list"><li>Bonifico</li><li>Mastercard</li><li>Paysafecard</li><li>Skrill</li><li>Neteller</li><li>MiFinity</li><li>Revolut</li><li>Interac</li><li>criptovalute (Bitcoin</li><li>Litecoin</li><li>Tether)</li></ul></dd></div></dl></details>
-    <small class="toplist__legal">18+ | Si applicano i T&amp;C</small>
-  </div>
-    </div>
-
-    <div class="toplist__item toplist__item--compact" role="listitem">
-        <div class="toplist__main">
-            <div class="toplist__rank">7</div>
-            <div class="toplist__logo">
-                <img src="https://reframe-toplists.reframe-web.workers.dev/media/magius.png?v=2026-10-08T22%3A01%3A23.465Z" alt="Magius" class="toplist__logo-img">
-            </div>
-            <div class="toplist__info">
-                <div class="toplist__header">
-                    <span class="toplist__name">Magius</span>
-                    
-                </div>
-                
-                
-            </div>
-            <div class="toplist__bonus">
-                <span class="toplist__bonus-label"><i data-lucide="gift" class="icon"></i> Bonus benvenuto</span>
-                <span class="toplist__bonus-value">100% fino a €500 + 200 giri gratis</span>
-            </div>
-            <div class="toplist__cta">
-                <a href="https://mgs.lynmonkel.com/?mid=392597_2259898" class="btn btn--play" data-cs="magius:play" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
-                <a href="https://mgs.lynmonkel.com/?mid=392597_2259898" class="btn btn--review" data-cs="magius:review" rel="noopener noreferrer nofollow" target="_blank">Recensione</a>
-            </div>
-        </div>
-        <div class="toplist__extras">
-    <p class="toplist__deposit"><span>Deposito minimo</span><strong>€10</strong></p>
-    <details class="toplist__details"><summary>Informazioni sul casinò<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg></summary><dl><div class="toplist__detail-row"><dt>Metodo di deposito</dt><dd><ul class="toplist__payment-list" role="list"><li>Bonifico</li><li>Mastercard</li><li>Paysafecard</li><li>Skrill</li><li>Neteller</li><li>MiFinity</li><li>Revolut</li><li>Interac</li><li>criptovalute (Bitcoin</li><li>Litecoin</li><li>Tether)</li></ul></dd></div></dl></details>
     <small class="toplist__legal">18+ | Si applicano i T&amp;C</small>
   </div>
     </div>
@@ -1318,17 +1194,17 @@
         <div class="sticky-bonus__inner">
             <div class="sticky-bonus__rank" aria-hidden="true">1</div>
             <div class="sticky-bonus__logo">
-                <img src="https://reframe-toplists.reframe-web.workers.dev/media/realz.jpg?v=2026-10-08T20%3A41%3A48.950Z" alt="Realz" class="sticky-bonus__logo-img">
+                <img src="https://reframe-toplists.reframe-web.workers.dev/media/casoola-full.svg?v=2026-10-08T22%3A05%3A48.750Z" alt="Casoola" class="sticky-bonus__logo-img">
             </div>
             <div class="sticky-bonus__info">
-                <span class="sticky-bonus__name">Realz</span>
-                <span class="sticky-bonus__offer">300% fino a €3.000 + 300 giri gratis</span>
+                <span class="sticky-bonus__name">Casoola</span>
+                <span class="sticky-bonus__offer">100% fino a €500 + 200 giri gratis</span>
             </div>
             <div class="sticky-bonus__stars" aria-label="Valutazione  su 5">
                 <span class="sticky-bonus__score"></span>
                 <span class="sticky-stars" aria-hidden="true">★★★★★</span>
             </div>
-            <a href="https://rltz.joklora.com/?mid=392566_2259619" class="btn btn--play sticky-bonus__cta" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
+            <a href="https://slplc.lynmonkel.com/?mid=392597_2259888" class="btn btn--play sticky-bonus__cta" rel="noopener noreferrer nofollow" target="_blank">Gioca ora</a>
             <button class="sticky-bonus__close" id="stickyClose" aria-label="Chiudi">✕</button>
         </div>
     </div>
