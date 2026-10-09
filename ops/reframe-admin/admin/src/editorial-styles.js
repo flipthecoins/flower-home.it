@@ -11,13 +11,13 @@ body:has(.toplist__item--editorial) .sticky-bonus .sticky-bonus__cta { backgroun
 }
 .toplist__item--editorial:hover { transform:none; border-color:#b9c4cf !important; box-shadow:0 3px 12px rgba(22,42,65,.045); }
 .toplist__item--editorial::before, .toplist__item--editorial::after { content:none !important; }
-.toplist__item--editorial .toplist__main { display:grid; grid-template-columns:28px 112px minmax(108px,150px) minmax(0,1fr) 142px; gap:16px; align-items:center; min-height:126px; padding:20px; }
-.toplist__item--editorial.toplist__item--no-bonus .toplist__main { grid-template-columns:28px 112px minmax(0,1fr) 142px; }
+.toplist__item--editorial .toplist__main { display:grid; grid-template-columns:28px 128px minmax(108px,150px) minmax(0,1fr) 142px; gap:16px; align-items:center; min-height:126px; padding:20px; }
+.toplist__item--editorial.toplist__item--no-bonus .toplist__main { grid-template-columns:28px 128px minmax(0,1fr) 142px; }
 .toplist__item--editorial .toplist__rank { grid-column:auto; grid-row:auto; align-self:center; display:flex; align-items:center; justify-content:center; width:28px; height:28px; padding:0; border:0; border-radius:50%; background:#f0f3f6; color:var(--editorial-muted); font-size:12px; font-weight:700; }
 .toplist__item--editorial .toplist__rank--1 { background:#f6e9b6; color:#6e5310; }
 .toplist__item--editorial .toplist__rank--2, .toplist__item--editorial .toplist__rank--3 { background:#faf4df; color:#80642a; }
-.toplist__item--editorial .toplist__logo { min-height:0; height:76px; padding:4px !important; background:transparent !important; border:0 !important; border-radius:0; box-shadow:none; display:flex; align-items:center; justify-content:center; }
-.toplist__item--editorial .toplist__logo-img { width:100% !important; height:68px !important; max-width:112px !important; max-height:68px !important; object-fit:contain !important; border-radius:0; }
+.toplist__item--editorial .toplist__logo { min-height:0; height:80px; padding:0 !important; background:transparent !important; border:0 !important; border-radius:0; box-shadow:none; display:flex; align-items:center; justify-content:center; }
+.toplist__item--editorial .toplist__logo-img { width:100% !important; height:76px !important; max-width:128px !important; max-height:76px !important; object-fit:contain !important; border-radius:0; }
 .toplist__item--editorial .toplist__info { padding:0 !important; border:0; gap:6px; }
 .toplist__item--editorial .toplist__header { display:flex; flex-direction:column; align-items:flex-start; gap:7px; }
 .toplist__item--editorial .toplist__name { color:var(--editorial-ink) !important; font-size:17px; font-weight:750; line-height:1.3; letter-spacing:-.025em; }
@@ -43,8 +43,8 @@ body:has(.toplist__item--editorial) .sticky-bonus .sticky-bonus__cta { backgroun
 .toplist__item--editorial .toplist__detail-row dt { opacity:1; color:var(--editorial-muted); }
 .toplist__item--editorial .toplist__payment-list li { background:#fff; border-color:var(--editorial-line); color:var(--editorial-ink); }
 @media(min-width:681px) and (max-width:1000px) {
-  .toplist__item--editorial .toplist__main { grid-template-columns:24px 88px minmax(88px,116px) minmax(0,1fr) 116px; gap:12px; padding:16px; }
-  .toplist__item--editorial.toplist__item--no-bonus .toplist__main { grid-template-columns:24px 88px minmax(0,1fr) 116px; }
+  .toplist__item--editorial .toplist__main { grid-template-columns:24px 96px minmax(88px,116px) minmax(0,1fr) 116px; gap:12px; padding:16px; }
+  .toplist__item--editorial.toplist__item--no-bonus .toplist__main { grid-template-columns:24px 96px minmax(0,1fr) 116px; }
   .toplist__item--editorial .toplist__bonus { padding-left:14px; }
   .toplist__item--editorial .toplist__bonus-value { font-size:14px; }
   .toplist__item--editorial .toplist__name { font-size:15px; }
@@ -54,10 +54,10 @@ body:has(.toplist__item--editorial) .sticky-bonus .sticky-bonus__cta { backgroun
   .toplist__item--editorial .toplist__details { grid-row:3; }
 }
 @media(max-width:680px) {
-  .toplist__item--editorial .toplist__main, .toplist__item--editorial.toplist__item--no-bonus .toplist__main { grid-template-columns:24px 92px minmax(0,1fr) !important; grid-template-rows:auto; gap:14px 12px; padding:16px; min-height:0; }
+  .toplist__item--editorial .toplist__main, .toplist__item--editorial.toplist__item--no-bonus .toplist__main { grid-template-columns:24px 112px minmax(0,1fr) !important; grid-template-rows:auto; gap:14px 12px; padding:16px; min-height:0; }
   .toplist__item--editorial .toplist__rank { grid-column:1; grid-row:1; width:24px; height:24px; font-size:11px; }
-  .toplist__item--editorial .toplist__logo { grid-column:2; grid-row:1; height:60px; }
-  .toplist__item--editorial .toplist__logo-img { height:56px !important; max-height:56px !important; }
+  .toplist__item--editorial .toplist__logo { grid-column:2; grid-row:1; height:76px; }
+  .toplist__item--editorial .toplist__logo-img { height:72px !important; max-height:72px !important; }
   .toplist__item--editorial .toplist__info { grid-column:3; grid-row:1; }
   .toplist__item--editorial .toplist__name { font-size:18px; line-height:1.3; }
   .toplist__item--editorial .toplist__bonus { grid-column:1 / -1; grid-row:auto; padding:14px 0 0; border:0; border-top:1px solid var(--editorial-line); gap:5px; }
@@ -74,7 +74,7 @@ body:has(.toplist__item--editorial) .sticky-bonus .sticky-bonus__cta { backgroun
 @media(max-width:360px) {
   /* The redundant homepage CTA must not push the language menu off narrow screens. */
   body:has(.toplist__item--editorial) .header .nav__cta { display:none; }
-  .toplist__item--editorial .toplist__main, .toplist__item--editorial.toplist__item--no-bonus .toplist__main { grid-template-columns:22px 72px minmax(0,1fr) !important; gap:12px 10px; padding:14px; }
+  .toplist__item--editorial .toplist__main, .toplist__item--editorial.toplist__item--no-bonus .toplist__main { grid-template-columns:22px 88px minmax(0,1fr) !important; gap:12px 10px; padding:14px; }
   .toplist__item--editorial .toplist__name { font-size:16px; }
 }
 @media(prefers-reduced-motion:reduce) { .toplist__item--editorial, .toplist__item--editorial * { transition:none !important; } }

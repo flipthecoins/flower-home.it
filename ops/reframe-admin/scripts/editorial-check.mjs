@@ -23,6 +23,13 @@ try {
     const r=c.getBoundingClientRect(); const im=c.querySelector('img');const bad=[];
     if(r.left<0||r.right>innerWidth+1)bad.push('overflow');
     if(!im.complete||!im.naturalWidth)bad.push('image');
+    const ir=im.getBoundingClientRect();
+    const expectedLogoWidth=innerWidth<=360?88:innerWidth<=680?112:innerWidth<=1000?96:128;
+    if(Math.abs(ir.width-expectedLogoWidth)>1)bad.push('logo width');
+    if(Math.abs(ir.height-(innerWidth<=680?72:76))>1)bad.push('logo height');
+    const name=c.querySelector('.toplist__name');
+    if(name.scrollWidth>name.clientWidth+1)bad.push('name clipping');
+    if(ir.right>c.querySelector('.toplist__info').getBoundingClientRect().left+1)bad.push('logo overlap');
     if(getComputedStyle(c.querySelector('.btn--review')).color!=='rgb(89, 104, 120)')bad.push('review contrast');
     if(getComputedStyle(c).backgroundColor!=='rgb(255, 255, 255)')bad.push('background');
     if(getComputedStyle(c.querySelector('.toplist__logo')).backgroundColor!=='rgba(0, 0, 0, 0)')bad.push('plate');
