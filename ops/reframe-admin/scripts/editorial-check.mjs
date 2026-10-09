@@ -24,15 +24,32 @@ try {
     if(r.left<0||r.right>innerWidth+1)bad.push('overflow');
     if(!im.complete||!im.naturalWidth)bad.push('image');
     const ir=im.getBoundingClientRect();
-    const expectedLogoWidth=innerWidth<=360?88:innerWidth<=680?112:innerWidth<=1000?96:128;
+    const main=c.querySelector('.toplist__main');const ms=getComputedStyle(main);
+    const contentWidth=main.clientWidth-parseFloat(ms.paddingLeft)-parseFloat(ms.paddingRight);
+    const expectedLogoWidth=innerWidth<=680?Math.min(contentWidth*.8,260):innerWidth<=1000?96:128;
     if(Math.abs(ir.width-expectedLogoWidth)>1)bad.push('logo width');
-    if(Math.abs(ir.height-(innerWidth<=680?72:76))>1)bad.push('logo height');
+    if(Math.abs(ir.height-(innerWidth<=680?104:76))>1)bad.push('logo height');
     const name=c.querySelector('.toplist__name');
     if(name.scrollWidth>name.clientWidth+1)bad.push('name clipping');
-    if(ir.right>c.querySelector('.toplist__info').getBoundingClientRect().left+1)bad.push('logo overlap');
+    const info=c.querySelector('.toplist__info').getBoundingClientRect();
+    if(innerWidth<=680){
+      if(ir.bottom>info.top-6)bad.push('logo/name vertical spacing');
+      if(Math.abs((ir.left+ir.right)/2-(r.left+r.right)/2)>1)bad.push('logo centering');
+      const nr=name.getBoundingClientRect();
+      if(Math.abs((nr.left+nr.right)/2-(r.left+r.right)/2)>1||getComputedStyle(name).textAlign!=='center')bad.push('name centering');
+      const rank=c.querySelector('.toplist__rank').getBoundingClientRect();
+      if(rank.right>ir.left&&rank.left<ir.right&&rank.bottom>ir.top&&rank.top<ir.bottom)bad.push('rank/logo overlap');
+    }else if(ir.right>info.left+1)bad.push('logo overlap');
     const play=c.querySelector('.btn--play');const ps=getComputedStyle(play);
     if(ps.backgroundColor!=='rgb(21, 128, 61)'||ps.color!=='rgb(255, 255, 255)')bad.push('CTA colors');
-    if(play.getBoundingClientRect().height<44)bad.push('CTA touch target');
+    if(play.getBoundingClientRect().height<48)bad.push('CTA touch target');
+    if(ps.fontSize!=='16px')bad.push('CTA typography');
+    const bonus=c.querySelector('.toplist__bonus-value');
+    if(bonus&&parseFloat(getComputedStyle(bonus).fontSize)!==(innerWidth>680&&innerWidth<=1000?18:20))bad.push('bonus typography');
+    if(getComputedStyle(c.querySelector('.btn--review')).fontSize!=='14px')bad.push('review typography');
+    for(const text of c.querySelectorAll('.toplist__bonus-value,.btn--play,.btn--review,.toplist__legal,.toplist__deposit')){
+      if(text.scrollWidth>text.clientWidth+1||text.scrollHeight>text.clientHeight+1)bad.push('text clipping: '+text.className);
+    }
     if(getComputedStyle(c.querySelector('.btn--review')).color!=='rgb(89, 104, 120)')bad.push('review contrast');
     if(getComputedStyle(c).backgroundColor!=='rgb(255, 255, 255)')bad.push('background');
     if(getComputedStyle(c.querySelector('.toplist__logo')).backgroundColor!=='rgba(0, 0, 0, 0)')bad.push('plate');

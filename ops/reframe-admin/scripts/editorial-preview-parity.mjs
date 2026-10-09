@@ -41,6 +41,16 @@ try {
     }));
     const actual = await read(p);
     assert.deepEqual(actual, await read(d), `CTA parity at ${width}px`);
+    if(width<=680){
+      for(const page of [p,d]){
+        const brand=await page.locator('.toplist__item').first().evaluate(c=>{
+          const r=c.getBoundingClientRect();const logo=c.querySelector('.toplist__logo').getBoundingClientRect();
+          const name=c.querySelector('.toplist__name');const nr=name.getBoundingClientRect();
+          return {logoCentered:Math.abs((logo.left+logo.right-r.left-r.right)/2)<1,nameCentered:Math.abs((nr.left+nr.right-r.left-r.right)/2)<1,below:nr.top>=logo.bottom+6,textAlign:getComputedStyle(name).textAlign};
+        });
+        assert.deepEqual(brand,{logoCentered:true,nameCentered:true,below:true,textAlign:'center'},`Mobile brand header at ${width}px`);
+      }
+    }
     console.log(JSON.stringify({ width, parity: true, ...actual }));
     await p.close(); await d.close();
   }
