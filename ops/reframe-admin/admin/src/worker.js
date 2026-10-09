@@ -1,6 +1,7 @@
 import { LOGO_CSS } from './logo-styles.js';
 import { EDITORIAL_CSS } from './editorial-styles.js';
 import { renderCasinoDetails, DETAILS_CSS } from './casino-details.js';
+import { decodeMediaBytes } from './media-bytes.js';
 import { publicCasinos, PUBLIC_ORIGIN } from './public-media.js';
 import { html } from './html.js';
 import { COUNTRIES, LANGS, NL_BADGE_LABELS, GITHUB_ORG } from './config.js';
@@ -118,7 +119,7 @@ async function handleAPI(path, request, env) {
     if (!data) return json({ error: 'Not found' }, 404);
     const ext = filename.split('.').pop().toLowerCase();
     const types = { svg: 'image/svg+xml', png: 'image/png', webp: 'image/webp', jpg: 'image/jpeg', jpeg: 'image/jpeg' };
-    const binary = Uint8Array.from(atob(data), c => c.charCodeAt(0));
+    const binary = decodeMediaBytes(data);
     return new Response(binary, { headers: { 'Content-Type': types[ext] || 'application/octet-stream', 'Cache-Control': 'no-cache' } });
   }
 

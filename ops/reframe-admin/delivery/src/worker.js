@@ -1,3 +1,4 @@
+import { decodeMediaBytes } from '../../admin/src/media-bytes.js';
 import { COUNTRIES } from '../../admin/src/config.js';
 import { generateToplistHTML, generateStickyBonusHTML, generateColorsCSS } from '../../admin/src/worker.js';
 import { publicCasinos } from '../../admin/src/public-media.js';
@@ -51,7 +52,7 @@ export default {
       if (!type) return new Response('Unsupported media', { status: 415 });
       const data = await env.SESSIONS.get(`media:file:${filename}`, { cacheTtl: 30 });
       if (!data) return new Response('Not found', { status: 404 });
-      return new Response(Uint8Array.from(atob(data), c => c.charCodeAt(0)), { headers: {
+      return new Response(decodeMediaBytes(data), { headers: {
         'Content-Type': type, 'Cache-Control': 'public, max-age=30, must-revalidate',
         'Access-Control-Allow-Origin': '*', 'X-Content-Type-Options': 'nosniff', 'Content-Security-Policy': "default-src 'none'; sandbox",
       } });
