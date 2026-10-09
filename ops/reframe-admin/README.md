@@ -50,8 +50,8 @@ Rollback a site helper with a Git revert and its normal deployment. Roll back ei
 ## Flower editorial comparison theme
 
 The `italy` configuration opts into `card_theme: 'editorial'`. Its light cards
-use the site's navy as ink and primary-action color, restrained gold ranking
-markers, and unboxed logos. This is an intentional theme override of the dark
+use the site's navy as ink, accessible green primary actions (`#15803d`,
+hover `#166534`, white labels), restrained gold ranking markers, and unboxed logos. This is an intentional theme override of the dark
 palette: the saved navy/gold values remain the theme inputs; the legacy CTA/text
 colors do not recolor editorial cards. Other country lists are not opted in.
 

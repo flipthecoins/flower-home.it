@@ -27,8 +27,8 @@ body:has(.toplist__item--editorial) .sticky-bonus .sticky-bonus__cta { backgroun
 .toplist__item--editorial .toplist__bonus-label .icon { display:none; }
 .toplist__item--editorial .toplist__bonus-value { color:var(--editorial-ink) !important; font-size:16px; font-weight:650; line-height:1.5; letter-spacing:-.015em; }
 .toplist__item--editorial .toplist__cta { grid-column:auto; grid-row:auto; display:flex; flex-direction:column; align-items:stretch; gap:4px; padding:0; border:0; background:none; }
-.toplist__item--editorial .toplist__cta .btn--play { display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:11px 14px; margin:0; border:1px solid transparent; border-radius:8px; color:#fff !important; background:var(--editorial-ink) !important; box-shadow:none !important; font-size:13px; line-height:1.4; font-weight:700; text-decoration:none; transform:none; }
-.toplist__item--editorial .toplist__cta .btn--play:hover { background:color-mix(in srgb,var(--editorial-ink) 86%,#fff) !important; transform:none; }
+.toplist__item--editorial .toplist__cta .btn--play { display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:11px 14px; margin:0; border:1px solid transparent; border-radius:8px; color:#fff !important; background:#15803d !important; box-shadow:none !important; font-size:13px; line-height:1.4; font-weight:700; text-decoration:none; transform:none; }
+.toplist__item--editorial .toplist__cta .btn--play:hover { background:#166534 !important; transform:none; }
 .toplist__item--editorial .toplist__cta .btn--review { display:flex; align-items:center; justify-content:center; min-height:32px; margin:0; padding:6px 10px; border:0; border-radius:8px; background:transparent; color:var(--editorial-muted) !important; font-size:12px; line-height:1.5; font-weight:500; opacity:1; box-shadow:none; }
 .toplist__item--editorial .toplist__cta .btn--review:hover { background:#f3f5f7; color:var(--editorial-ink); }
 .toplist__item--editorial .toplist__cta a:focus-visible { outline:2px solid var(--editorial-ink); outline-offset:3px; }

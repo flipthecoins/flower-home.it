@@ -30,6 +30,9 @@ try {
     const name=c.querySelector('.toplist__name');
     if(name.scrollWidth>name.clientWidth+1)bad.push('name clipping');
     if(ir.right>c.querySelector('.toplist__info').getBoundingClientRect().left+1)bad.push('logo overlap');
+    const play=c.querySelector('.btn--play');const ps=getComputedStyle(play);
+    if(ps.backgroundColor!=='rgb(21, 128, 61)'||ps.color!=='rgb(255, 255, 255)')bad.push('CTA colors');
+    if(play.getBoundingClientRect().height<44)bad.push('CTA touch target');
     if(getComputedStyle(c.querySelector('.btn--review')).color!=='rgb(89, 104, 120)')bad.push('review contrast');
     if(getComputedStyle(c).backgroundColor!=='rgb(255, 255, 255)')bad.push('background');
     if(getComputedStyle(c.querySelector('.toplist__logo')).backgroundColor!=='rgba(0, 0, 0, 0)')bad.push('plate');
@@ -37,6 +40,16 @@ try {
    }),
    heights:[...document.querySelectorAll('.toplist__item')].slice(0,3).map(c=>Math.round(c.getBoundingClientRect().height)),
   }));
+  const play=page.locator('.toplist__item .btn--play').first();
+  await play.hover();
+  await page.waitForFunction(()=>getComputedStyle(document.querySelector('.toplist__item .btn--play')).backgroundColor==='rgb(22, 101, 52)',null,{timeout:3000});
+  await page.mouse.move(0,0);
+  await page.waitForFunction(()=>getComputedStyle(document.querySelector('.toplist__item .btn--play')).backgroundColor==='rgb(21, 128, 61)',null,{timeout:3000});
+  await play.focus();
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Shift+Tab');
+  const focus=await play.evaluate(e=>({active:e===document.activeElement,visible:e.matches(':focus-visible'),style:getComputedStyle(e).outlineStyle,width:getComputedStyle(e).outlineWidth}));
+  if(!focus.active||!focus.visible||focus.style!=='solid'||parseFloat(focus.width)<2)throw Error('CTA keyboard focus failed: '+JSON.stringify({viewport:width,...focus}));
   const summary=page.locator('.toplist__item summary').first();await summary.focus();await page.keyboard.press('Enter');
   if(!await summary.locator('..').evaluate(x=>x.open))throw Error('Details keyboard failed');
   await page.keyboard.press('Enter');
