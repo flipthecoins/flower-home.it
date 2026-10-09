@@ -49,6 +49,8 @@ try {
           return {logoCentered:Math.abs((logo.left+logo.right-r.left-r.right)/2)<1,nameCentered:Math.abs((nr.left+nr.right-r.left-r.right)/2)<1,below:nr.top>=logo.bottom+6,textAlign:getComputedStyle(name).textAlign};
         });
         assert.deepEqual(brand,{logoCentered:true,nameCentered:true,below:true,textAlign:'center'},`Mobile brand header at ${width}px`);
+        const uncentered=await page.locator('.toplist__item').first().evaluate(c=>[...c.querySelectorAll('.toplist__bonus-label,.toplist__bonus-value,.toplist__deposit,.toplist__legal,summary,dt,dd,li')].filter(e=>getComputedStyle(e).textAlign!=='center').map(e=>e.className||e.tagName));
+        assert.deepEqual(uncentered,[],`Mobile text centering in preview/delivery at ${width}px`);
       }
     }
     console.log(JSON.stringify({ width, parity: true, ...actual }));

@@ -54,6 +54,13 @@ body:has(.toplist__item--editorial) .sticky-bonus .sticky-bonus__cta { backgroun
   .toplist__item--editorial .toplist__details { grid-row:3; }
 }
 @media(max-width:680px) {
+  .toplist__item--editorial .toplist__main, .toplist__item--editorial .toplist__extras { text-align:center; }
+  .toplist__item--editorial .toplist__bonus { align-items:center; }
+  .toplist__item--editorial .toplist__bonus-label { justify-content:center; }
+  .toplist__item--editorial .toplist__deposit, .toplist__item--editorial .toplist__payment-list { justify-content:center; }
+  .toplist__item--editorial .toplist__legal { width:100%; }
+  .toplist__item--editorial .toplist__details summary { position:relative; justify-content:center; padding-left:24px; padding-right:24px; }
+  .toplist__item--editorial .toplist__details summary svg { position:absolute; right:4px; }
   .toplist__item--editorial .toplist__main, .toplist__item--editorial.toplist__item--no-bonus .toplist__main { position:relative; grid-template-columns:minmax(0,1fr) !important; grid-template-rows:auto; gap:12px; padding:20px 16px 16px; min-height:0; }
   .toplist__item--editorial .toplist__rank { position:absolute; top:16px; left:16px; width:24px; height:24px; font-size:11px; }
   /* Wide wordmarks get room; the height cap keeps square marks proportional. */
@@ -71,7 +78,7 @@ body:has(.toplist__item--editorial) .sticky-bonus .sticky-bonus__cta { backgroun
   .toplist__item--editorial .toplist__deposit { width:100%; padding:10px 0 0; line-height:1.5; gap:4px 8px; }
   .toplist__item--editorial .toplist__legal { order:2; margin:0; padding:0 0 10px; font-size:12px; }
   .toplist__item--editorial .toplist__details { width:100%; border:0; }
-  .toplist__item--editorial .toplist__details summary { min-height:44px; padding:10px 0; }
+  .toplist__item--editorial .toplist__details summary { min-height:44px; padding:10px 24px; }
 }
 @media(max-width:360px) {
   /* The redundant homepage CTA must not push the language menu off narrow screens. */
