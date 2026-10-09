@@ -1,7 +1,7 @@
 // Shared by the published cards and the editor preview.
 export const LOGO_CSS = `
 .toplist__main { grid-template-columns: 44px minmax(150px,180px) minmax(130px,1fr) minmax(140px,210px) minmax(120px,170px); }
-.toplist__logo { box-sizing:border-box; min-width:0; min-height:112px; padding:8px !important; overflow:hidden; }
+.toplist__logo { box-sizing:border-box; min-width:0; min-height:112px; padding:8px !important; overflow:hidden; background:#64748b !important; border:1px solid rgba(255,255,255,.18) !important; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.12); }
 .toplist__logo-img { display:block !important; width:100% !important; height:104px !important; max-width:100% !important; max-height:none !important; object-fit:contain !important; }
 .toplist__info { min-width:0; }
 .toplist__name { overflow-wrap:anywhere; }

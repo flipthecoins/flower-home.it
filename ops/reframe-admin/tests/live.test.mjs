@@ -173,6 +173,19 @@ test('both Italian lists use the compact design with Italian details and preserv
   }
 });
 
+test('all Italian and Dutch cards use one neutral logo plate for dark and light marks', async () => {
+  const casino = [{ name: 'Mixed logo', slug: 'mixed', logo: 'mixed.svg', bonus: '' }];
+  const env = environment(casino);
+  for (const country of ['italy', 'italy_aams', 'netherlands', 'netherlands_cruks']) {
+    env.data.set(`bot:casinos:${country}`, casino);
+    const data = await snapshot(country, env, 'https://public.example');
+    assert.match(data.css, /\.toplist__logo\s*\{[^}]*background:\s*#64748b\s*!important/s);
+    assert.match(data.css, /\.toplist__logo\s*\{[^}]*border:\s*1px solid rgba\(255,255,255,\.18\)\s*!important/s);
+    assert.match(data.css, /\.toplist__logo\s*\{[^}]*border-radius:\s*10px/s);
+    assert.match(data.css, /\.toplist__logo\s*\{[^}]*box-shadow:\s*0 2px 8px rgba\(0,0,0,\.18\)/s);
+  }
+});
+
 test('the bundled preview renderer runs without Worker bundler helpers in the browser', async () => {
   const bundle = await build({ entryPoints: ['admin/src/html.js'], bundle: true, format: 'esm', keepNames: true, write: false });
   const compiled = await import('data:text/javascript;base64,' + Buffer.from(bundle.outputFiles[0].text).toString('base64'));
