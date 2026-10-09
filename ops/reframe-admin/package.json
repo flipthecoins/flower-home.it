@@ -3,7 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "test:visual:editorial": "node scripts/editorial-check.mjs",
+    "test:visual:editorial:edges": "node scripts/editorial-edge-cases.mjs",
+    "test:visual:editorial:parity": "node scripts/editorial-preview-parity.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.1",

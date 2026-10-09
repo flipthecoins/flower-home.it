@@ -1,4 +1,5 @@
 import { LOGO_CSS } from './logo-styles.js';
+import { EDITORIAL_CSS } from './editorial-styles.js';
 import { renderCasinoDetails, DETAILS_CSS } from './casino-details.js';
 import { publicCasinos, PUBLIC_ORIGIN } from './public-media.js';
 import { html } from './html.js';
@@ -417,7 +418,7 @@ export function generateToplistHTML(casinos, config, lang, settings, countryId, 
     const rank = i + 1;
     const isTop3 = rank <= 3;
     const hasBonus = !!String(c.bonus || '').trim();
-    const itemClass = (isTop3 ? `toplist__item toplist__item--top toplist__item--${rank}` : 'toplist__item') + (compact ? ' toplist__item--compact' + (!hasBonus ? ' toplist__item--no-bonus' : '') : '');
+    const itemClass = (isTop3 ? `toplist__item toplist__item--top toplist__item--${rank}` : 'toplist__item') + (compact ? ' toplist__item--compact' + (!hasBonus ? ' toplist__item--no-bonus' : '') : '') + (config.card_theme === 'editorial' ? ' toplist__item--editorial' : '');
     const rankClass = isTop3 ? `toplist__rank toplist__rank--${rank}` : 'toplist__rank';
     const link = safeLink(c.link || (!settings?.redirects_path && c.destination) || `${linkBase}/${c.slug}`);
     const ctaPlay = escHtml(c.cta_play || L.cta_play);
@@ -533,6 +534,7 @@ export function generateColorsCSS(colors) {
 .btn--play:hover::after { transform: translateX(3px); }
 ${LOGO_CSS}
 ${DETAILS_CSS}
+${EDITORIAL_CSS}
 @media (max-width: 600px) {
   .toplist__cta { flex-direction: row !important; }
   .btn--review { order: -1; }

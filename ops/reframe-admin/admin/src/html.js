@@ -1,6 +1,7 @@
 import { renderCasinoDetails, DETAILS_CSS } from './casino-details.js';
 import { LANGS, NL_BADGE_LABELS } from './config.js';
 import { LOGO_CSS } from './logo-styles.js';
+import { EDITORIAL_CSS } from './editorial-styles.js';
 export function html() {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -1373,7 +1374,7 @@ function renderPreviewTab() {
   if (!frame) return;
   var linkBase = (currentCountry && currentCountry.link_base) ? currentCountry.link_base : '#';
   var lang = (currentSettings && currentSettings.language) ? currentSettings.language : 'it';
-  frame.srcdoc = generatePreviewHTML(casinos, currentColors, linkBase, lang).replace('</head>', '<style>' + ${JSON.stringify(LOGO_CSS + DETAILS_CSS)} + '</style></head>');
+  frame.srcdoc = generatePreviewHTML(casinos, currentColors, linkBase, lang).replace('</head>', '<style>' + ${JSON.stringify(LOGO_CSS + DETAILS_CSS + EDITORIAL_CSS)} + '</style></head>');
 }
 
 var renderPublicDetails = ${renderCasinoDetails.toString()};
@@ -1396,7 +1397,7 @@ function generatePreviewHTML(casinoList, colors, linkBase, lang) {
     var link = previewLink(casino, linkBase);
     var logoSrc = esc(mediaUrl(casino.logo));
     var bc = (casino.badge && BC[casino.badge]) ? BC[casino.badge] : 'badge--gold';
-    return '<div class="toplist__item' + (isTop ? ' toplist__item--top toplist__item--' + rank : '') + (compact ? ' toplist__item--compact' + (!hasBonus ? ' toplist__item--no-bonus' : '') : '') + '" role="listitem">' +
+    return '<div class="toplist__item' + (isTop ? ' toplist__item--top toplist__item--' + rank : '') + (compact ? ' toplist__item--compact' + (!hasBonus ? ' toplist__item--no-bonus' : '') : '') + (currentCountry && currentCountry.card_theme === 'editorial' ? ' toplist__item--editorial' : '') + '" role="listitem">' +
       '<div class="toplist__main">' +
         '<div class="toplist__rank' + (isTop ? ' toplist__rank--' + rank : '') + '">' + rank + '</div>' +
         '<div class="toplist__logo">' +
@@ -1411,7 +1412,7 @@ function generatePreviewHTML(casinoList, colors, linkBase, lang) {
           (!compact && String(casino.license || '').trim() ? '<div class="toplist__license">🛡 ' + esc(casino.license) + '</div>' : '') +
         '</div>' +
         (!compact || hasBonus ? '<div class="toplist__bonus">' +
-          '<span class="toplist__bonus-label">🎁 ' + L.bonus_label + '</span>' +
+          '<span class="toplist__bonus-label">' + (currentCountry && currentCountry.card_theme === 'editorial' ? '' : '🎁 ') + L.bonus_label + '</span>' +
           '<span class="toplist__bonus-value">' + esc(casino.bonus || '') + '</span>' +
         '</div>' : '') +
         '<div class="toplist__cta">' +

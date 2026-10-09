@@ -78,6 +78,7 @@ export const COUNTRIES = {
     link_base: 'https://link.flower-home.it',
     kv_key: 'bot:casinos:italy',
     card_layout: 'compact',
+    card_theme: 'editorial',
   },
   netherlands: {
     // Keep the existing ID and site integrations for the Zonder CRUKS list.

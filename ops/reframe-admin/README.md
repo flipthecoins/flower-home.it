@@ -47,6 +47,32 @@ The `Reframe live lists` workflow checks branch pushes and deploys both Workers 
 Rollback a site helper with a Git revert and its normal deployment. Roll back either admin/delivery Worker with its previous Cloudflare deployment version. For Pages, restore the previous deployment ID recorded in the change report. These rollbacks do not modify stored casinos or credentials.
 
 
+## Flower editorial comparison theme
+
+The `italy` configuration opts into `card_theme: 'editorial'`. Its light cards
+use the site's navy as ink and primary-action color, restrained gold ranking
+markers, and unboxed logos. This is an intentional theme override of the dark
+palette: the saved navy/gold values remain the theme inputs; the legacy CTA/text
+colors do not recolor editorial cards. Other country lists are not opted in.
+
+`admin/src/editorial-styles.js` is shared by public delivery and editor previews.
+Keep its selectors scoped to `.toplist__item--editorial`; page-level integration
+rules must use `:has(.toplist__item--editorial)`. Casino facts, ordering, image
+sources and destinations are unchanged by the theme.
+
+With the ignored `artifacts/current-state.json` fixture captured from the panel,
+run `npm run test:visual:editorial`. It renders local styles on the actual Flower
+page at ten breakpoints, checks content preservation, image loading, review-link
+contrast, overflow and keyboard details, and saves screenshot/report evidence.
+Run `npm run test:visual:editorial:edges` for empty and long-content cases,
+and `npm run test:visual:editorial:parity` to compare preview/delivery CTA order
+around mobile breakpoints. The scoped page-level rules also restyle the sticky
+CTA and hide the redundant header CTA at widths of 360px or less.
+After the official deployment run `npm run test:visual:editorial -- --production`.
+The viewport screenshots preserve the normal header; full-list captures hide it
+only to avoid sticky-header stitching artifacts. Source image resolution is
+separate from layout validation and still requires visual review.
+
 ## Italian and Dutch card presentation
 
 NL uses Dutch (`language: nl`), explicitly requested by José. Public cards omit empty licence badges, bonus sections and deposit labels. Nonempty deposits remain visible; full licence text and payment data are in a keyboard-accessible native `details` section. Payment entries are individual tags, and currency-only entries use the currency label. User-entered facts, casino order and destinations are preserved. The preview uses the same details renderer, and the editor language selector now uses the backend language catalog, including Nederlands.

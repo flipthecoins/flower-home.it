@@ -173,16 +173,32 @@ test('both Italian lists use the compact design with Italian details and preserv
   }
 });
 
-test('all Italian and Dutch cards use one neutral logo plate for dark and light marks', async () => {
+test('non-editorial lists retain their existing treatment for dark and light logos', async () => {
   const casino = [{ name: 'Mixed logo', slug: 'mixed', logo: 'mixed.svg', bonus: '' }];
   const env = environment(casino);
-  for (const country of ['italy', 'italy_aams', 'netherlands', 'netherlands_cruks']) {
+  for (const country of ['italy_aams', 'netherlands', 'netherlands_cruks']) {
     env.data.set(`bot:casinos:${country}`, casino);
     const data = await snapshot(country, env, 'https://public.example');
     assert.match(data.css, /\.toplist__logo\s*\{[^}]*background:\s*#64748b\s*!important/s);
     assert.match(data.css, /\.toplist__logo\s*\{[^}]*border:\s*1px solid rgba\(255,255,255,\.18\)\s*!important/s);
     assert.match(data.css, /\.toplist__logo\s*\{[^}]*border-radius:\s*10px/s);
     assert.match(data.css, /\.toplist__logo\s*\{[^}]*box-shadow:\s*0 2px 8px rgba\(0,0,0,\.18\)/s);
+  }
+});
+
+test('Flower editorial cards opt into a cohesive light theme without changing other lists or casino facts', async () => {
+  const casinos = [{ name: 'Casoola', slug: 'casoola', logo: 'casoola-full.svg', bonus: 'Bonus originale', min_deposit: '€10', methods: 'Visa', destination: 'https://example.com/offer' }];
+  const env = environment(casinos);
+  const data = await snapshot('italy', env, 'https://public.example');
+  assert.match(data.html, /toplist__item--editorial/);
+  assert.match(data.css, /\.toplist__item--editorial\s*\{[^}]*background:\s*#fff\s*!important/s);
+  assert.match(data.css, /--editorial-ink/);
+  assert.match(data.html, /Bonus originale/);
+  assert.match(data.html, /casoola-full\.svg/);
+  assert.deepEqual(env.data.get('bot:casinos:italy'), casinos);
+  for (const country of ['italy_aams', 'netherlands', 'netherlands_cruks']) {
+    env.data.set(`bot:casinos:${country}`, casinos);
+    assert.doesNotMatch((await snapshot(country, env, 'https://public.example')).html, /toplist__item--editorial/);
   }
 });
 
@@ -196,6 +212,18 @@ test('the bundled preview renderer runs without Worker bundler helpers in the br
   const output = render({ methods: 'EUR, USD' }, 'nl', { methods_label: 'Betaalmethoden', disclaimer: '18+' }, value => String(value || ''));
   assert.match(output, /Casino-informatie/);
   assert.match(output, /<li>EUR<\/li><li>USD<\/li>/);
+  const { COUNTRIES, LANGS, NL_BADGE_LABELS } = await import('../admin/src/config.js');
+  const previewEnd = document.indexOf('/* ── Deploy', start);
+  const preview = runInNewContext(`(() => {${document.slice(start, previewEnd)} return generatePreviewHTML;})()`, {
+    currentCountry: COUNTRIES.italy, currentSettings: {}, LANGS, NL_BADGE_LABELS,
+    DEFAULT_COLORS: { navy: '#1d3557', text: '#fff', gold: '#d4af37', cta: '#16a34a' },
+    previewLink: casino => casino.destination, mediaUrl: logo => logo,
+    esc: value => String(value || '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;'),
+  });
+  const previewDocument = preview([{ name: 'Casoola', logo: 'logo.svg', destination: 'https://example.com/', bonus: 'Original bonus' }], {}, '', 'it');
+  assert.match(previewDocument, /toplist__item--editorial/);
+  assert.match(previewDocument, /Original bonus/);
+  assert.match(document, /--editorial-ink/);
 });
 
 const built = await build({ stdin: {
