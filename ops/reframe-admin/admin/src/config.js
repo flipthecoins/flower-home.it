@@ -89,6 +89,7 @@ export const COUNTRIES = {
     link_base: 'https://www.driftwooddistillery.nl/go',
     kv_key: 'bot:casinos:netherlands',
     card_layout: 'compact',
+    card_theme: 'editorial',
   },
   netherlands_cruks: {
     name: 'Netherlands — CRUKS',
@@ -98,5 +99,6 @@ export const COUNTRIES = {
     link_base: 'https://www.driftwooddistillery.nl/go',
     kv_key: 'bot:casinos:netherlands_cruks',
     card_layout: 'compact',
+    card_theme: 'editorial',
   },
 };

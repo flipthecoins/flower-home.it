@@ -117,7 +117,7 @@ test('NL cards keep full facts in accessible details and omit empty fields', asy
   assert.doesNotMatch(data.html, /Jetzt spielen|Zahlungsmethoden|Mindesteinzahlung/);
 });
 
-test('Dutch lists save independently and both use Dutch compact cards', async () => {
+test('Dutch lists save independently and both use Dutch editorial cards', async () => {
   const env = environment();
   const zonder = [{ name: 'Offshore example', slug: 'offshore', license: 'Geen KSA', methods: 'EUR, BTC', bonus: '' }];
   const cruks = [{ name: 'Licensed example', slug: 'licensed', license: 'KSA 1234', methods: 'iDEAL, Visa', bonus: '' }];
@@ -139,6 +139,7 @@ test('Dutch lists save independently and both use Dutch compact cards', async ()
   assert.doesNotMatch(licensed.html, /Offshore example/);
   for (const data of [existing, licensed]) {
     assert.match(data.html, /toplist__item--compact/);
+    assert.match(data.html, /toplist__item--editorial/);
     assert.match(data.html, /<summary>Casino-informatie/);
     assert.match(data.html, /Speel Nu/);
     assert.doesNotMatch(data.html, /toplist__bonus|toplist__footer|toplist__license/);
@@ -176,7 +177,7 @@ test('both Italian lists use the compact design with Italian details and preserv
 test('non-editorial lists retain their existing treatment for dark and light logos', async () => {
   const casino = [{ name: 'Mixed logo', slug: 'mixed', logo: 'mixed.svg', bonus: '' }];
   const env = environment(casino);
-  for (const country of ['italy_aams', 'netherlands', 'netherlands_cruks']) {
+  for (const country of ['italy_aams']) {
     env.data.set(`bot:casinos:${country}`, casino);
     const data = await snapshot(country, env, 'https://public.example');
     assert.match(data.css, /\.toplist__logo\s*\{[^}]*background:\s*#64748b\s*!important/s);
@@ -186,20 +187,21 @@ test('non-editorial lists retain their existing treatment for dark and light log
   }
 });
 
-test('Flower editorial cards opt into a cohesive light theme without changing other lists or casino facts', async () => {
+test('Italian and Dutch editorial cards share the light theme and preserve casino facts', async () => {
   const casinos = [{ name: 'Casoola', slug: 'casoola', logo: 'casoola-full.svg', bonus: 'Bonus originale', min_deposit: '€10', methods: 'Visa', destination: 'https://example.com/offer' }];
   const env = environment(casinos);
-  const data = await snapshot('italy', env, 'https://public.example');
-  assert.match(data.html, /toplist__item--editorial/);
-  assert.match(data.css, /\.toplist__item--editorial\s*\{[^}]*background:\s*#fff\s*!important/s);
-  assert.match(data.css, /--editorial-ink/);
-  assert.match(data.html, /Bonus originale/);
-  assert.match(data.html, /casoola-full\.svg/);
-  assert.deepEqual(env.data.get('bot:casinos:italy'), casinos);
-  for (const country of ['italy_aams', 'netherlands', 'netherlands_cruks']) {
+  for (const country of ['italy', 'netherlands', 'netherlands_cruks']) {
     env.data.set(`bot:casinos:${country}`, casinos);
-    assert.doesNotMatch((await snapshot(country, env, 'https://public.example')).html, /toplist__item--editorial/);
+    const data = await snapshot(country, env, 'https://public.example');
+    assert.match(data.html, /toplist__item--editorial/);
+    assert.match(data.css, /\.toplist__item--editorial\s*\{[^}]*background:\s*#fff\s*!important/s);
+    assert.match(data.css, /--editorial-ink/);
+    assert.match(data.html, /Bonus originale/);
+    assert.match(data.html, /casoola-full\.svg/);
+    assert.deepEqual(env.data.get(`bot:casinos:${country}`), casinos);
   }
+  env.data.set('bot:casinos:italy_aams', casinos);
+  assert.doesNotMatch((await snapshot('italy_aams', env, 'https://public.example')).html, /toplist__item--editorial/);
 });
 
 test('the bundled preview renderer runs without Worker bundler helpers in the browser', async () => {

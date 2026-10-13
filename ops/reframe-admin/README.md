@@ -47,13 +47,20 @@ The `Reframe live lists` workflow checks branch pushes and deploys both Workers 
 Rollback a site helper with a Git revert and its normal deployment. Roll back either admin/delivery Worker with its previous Cloudflare deployment version. For Pages, restore the previous deployment ID recorded in the change report. These rollbacks do not modify stored casinos or credentials.
 
 
-## Flower editorial comparison theme
+## Italian and Dutch editorial comparison theme
 
-The `italy` configuration opts into `card_theme: 'editorial'`. Its light cards
+The `italy`, `netherlands` and `netherlands_cruks` configurations opt into
+`card_theme: 'editorial'`. Their light cards
 use the site's navy as ink, accessible green primary actions (`#15803d`,
 hover `#166534`, white labels), restrained gold ranking markers, and unboxed logos. This is an intentional theme override of the dark
 palette: the saved navy/gold values remain the theme inputs; the legacy CTA/text
-colors do not recolor editorial cards. Other country lists are not opted in.
+colors do not recolor editorial cards. The Italian AAMS list is not opted in.
+The Dutch lists use the same mobile logo and name alignment, typography,
+buttons and detail tags as Italy, with their existing Dutch labels and data.
+This includes the shared live list on uitzendtijden.nl, Driftwood, Bijlin,
+Ekofamily and Nocruks.
+Dutch sites retain their existing mobile-only list mounting; the desktop
+presentation is also available in the admin preview.
 
 `admin/src/editorial-styles.js` is shared by public delivery and editor previews.
 Keep its selectors scoped to `.toplist__item--editorial`; page-level integration
